@@ -52,6 +52,7 @@
     <Compile Include="DataBaseWindow.Designer.cs">
       <DependentUpon>DataBaseWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Database.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="GameWindow.cs">
       <SubType>Form</SubType>
