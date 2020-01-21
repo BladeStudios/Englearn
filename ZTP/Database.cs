@@ -67,5 +67,14 @@ namespace ZTP
         {
             data[data.LastIndexOf(word)] = newWord;
         }
+        public ArrayList getData()
+        {
+            return this.data;
+        }
+
+        public void setData(ArrayList data)
+        {
+            this.data = data;
+        }
     }
 }

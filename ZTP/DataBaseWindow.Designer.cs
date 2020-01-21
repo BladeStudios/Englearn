@@ -1,6 +1,6 @@
 ﻿namespace ZTP
 {
-    partial class DataBaseWindow
+    partial class DatabaseWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -32,6 +32,7 @@
             this.deleteButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // startButton
@@ -81,17 +82,28 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
-            // DataBaseWindow
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(123, 41);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(1008, 388);
+            this.listBox1.TabIndex = 7;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
+            // DatabaseWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1337, 700);
+            this.Controls.Add(this.listBox1);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.deleteButton);
             this.Controls.Add(this.startButton);
-            this.Name = "DataBaseWindow";
+            this.Name = "DatabaseWindow";
             this.Text = "DataBaseWindow";
             this.ResumeLayout(false);
 
@@ -103,5 +115,6 @@
         private System.Windows.Forms.Button deleteButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

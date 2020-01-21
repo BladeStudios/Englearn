@@ -70,7 +70,8 @@ namespace ZTP
         public MenuWindow()
         {
             InitializeComponent();
-            
+            Database database = new Database();
+            database.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,7 +113,7 @@ namespace ZTP
         private void BazaButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DataBaseWindow db = new DataBaseWindow();
+            DatabaseWindow db = new DatabaseWindow();
             db.Closed += (s, args) => this.Close();
             db.Show();
         }
