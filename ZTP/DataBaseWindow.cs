@@ -30,12 +30,12 @@ namespace ZTP
             dbEng.ClearData();
             listBoxPol.Items.Clear();
             listBoxEng.Items.Clear();
-            dbPol.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
+            dbPol.loadData("PolishDictionary.txt");
             foreach (var c in dbPol.getData())
             {
                 listBoxPol.Items.Add(c);
             }
-            dbEng.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+            dbEng.loadData("EnglishDictionary.txt");
             foreach (var c in dbEng.getData())
             {
                 listBoxEng.Items.Add(c);
@@ -57,16 +57,16 @@ namespace ZTP
             { 
                 dbPol.deleteWord(listBoxPol.SelectedIndex);
                 dbEng.deleteWord(listBoxPol.SelectedIndex);
-                dbPol.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
-                dbEng.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+                dbPol.saveData("PolishDictionary.txt");
+                dbEng.saveData("EnglishDictionary.txt");
                 loadData();
             }
             else if( listBoxEng.SelectedIndex != -1)
             {
                 dbPol.deleteWord(listBoxEng.SelectedIndex);
                 dbEng.deleteWord(listBoxEng.SelectedIndex);
-                dbPol.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
-                dbEng.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+                dbPol.saveData("PolishDictionary.txt");
+                dbEng.saveData("EnglishDictionary.txt");
                 loadData();
             }
             else

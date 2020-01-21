@@ -271,5 +271,13 @@ namespace ZTP
         {
             checkAnswer(5,answerEButton);
         }
+
+        private void backButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MenuWindow menu = new MenuWindow();
+            menu.Closed += (s, args) => this.Close();
+            menu.Show();
+        }
     }
 }

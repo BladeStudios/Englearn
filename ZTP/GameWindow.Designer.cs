@@ -37,6 +37,7 @@
             this.answerCButton = new System.Windows.Forms.Button();
             this.answerDButton = new System.Windows.Forms.Button();
             this.answerEButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // answerAButton
@@ -142,12 +143,24 @@
             this.answerEButton.UseVisualStyleBackColor = true;
             this.answerEButton.Click += new System.EventHandler(this.answerEButton_Click);
             // 
+            // backButton
+            // 
+            this.backButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.backButton.Location = new System.Drawing.Point(749, 512);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(244, 52);
+            this.backButton.TabIndex = 14;
+            this.backButton.Text = "POWRÓT";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1005, 576);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.answerEButton);
             this.Controls.Add(this.answerDButton);
             this.Controls.Add(this.answerCButton);
@@ -175,5 +188,6 @@
         private System.Windows.Forms.Button answerCButton;
         private System.Windows.Forms.Button answerDButton;
         private System.Windows.Forms.Button answerEButton;
+        private System.Windows.Forms.Button backButton;
     }
 }
