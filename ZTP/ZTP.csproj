@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameTest.cs" />
     <Compile Include="DataBaseWindow.cs">
       <SubType>Form</SubType>
     </Compile>
