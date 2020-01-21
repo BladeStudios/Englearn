@@ -31,13 +31,13 @@
             this.difficultyLabel = new System.Windows.Forms.Label();
             this.learningModelLabel = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.modeBox = new System.Windows.Forms.ComboBox();
+            this.levelBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.endButton = new System.Windows.Forms.Button();
             this.BazaButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.translationBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // difficultyLabel
@@ -75,36 +75,36 @@
             this.startButton.UseVisualStyleBackColor = true;
             this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
-            // comboBox1
+            // modeBox
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.modeBox.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.modeBox.FormattingEnabled = true;
+            this.modeBox.Items.AddRange(new object[] {
             "TRYB NAUKI",
             "TRYB TESTU"});
-            this.comboBox1.Location = new System.Drawing.Point(467, 200);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(379, 48);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.modeBox.Location = new System.Drawing.Point(200, 122);
+            this.modeBox.Margin = new System.Windows.Forms.Padding(2);
+            this.modeBox.Name = "modeBox";
+            this.modeBox.Size = new System.Drawing.Size(399, 40);
+            this.modeBox.TabIndex = 3;
+            this.modeBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // comboBox2
+            // levelBox
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.levelBox.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.levelBox.FormattingEnabled = true;
+            this.levelBox.Items.AddRange(new object[] {
             "ŁATWY",
             "ŚREDNI",
             "TRUDNY",
             "BARDZO TRUDNY",
             "EKSPERT"});
-            this.comboBox2.Location = new System.Drawing.Point(463, 307);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(383, 48);
-            this.comboBox2.TabIndex = 4;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.levelBox.Location = new System.Drawing.Point(200, 209);
+            this.levelBox.Margin = new System.Windows.Forms.Padding(2);
+            this.levelBox.Name = "levelBox";
+            this.levelBox.Size = new System.Drawing.Size(399, 40);
+            this.levelBox.TabIndex = 4;
+            this.levelBox.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -148,39 +148,38 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(468, 370);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(280, 260);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(358, 41);
+            this.label2.Size = new System.Drawing.Size(243, 32);
             this.label2.TabIndex = 8;
-            this.label2.Text = "JĘZYK DO NAUKI:";
+            this.label2.Text = "TŁUMACZENIE:";
             // 
-            // comboBox3
+            // translationBox
             // 
-            this.comboBox3.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "ANGIELSKI",
-            "POLSKI"});
-            this.comboBox3.Location = new System.Drawing.Point(463, 412);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(383, 48);
-            this.comboBox3.TabIndex = 9;
+            this.translationBox.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.translationBox.FormattingEnabled = true;
+            this.translationBox.Items.AddRange(new object[] {
+            "POLSKI-ANGIELSKI",
+            "ANGIELSKI-POLSKI"});
+            this.translationBox.Location = new System.Drawing.Point(200, 294);
+            this.translationBox.Margin = new System.Windows.Forms.Padding(2);
+            this.translationBox.Name = "translationBox";
+            this.translationBox.Size = new System.Drawing.Size(399, 40);
+            this.translationBox.TabIndex = 9;
             // 
             // MenuWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(1340, 709);
-            this.Controls.Add(this.comboBox3);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.translationBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BazaButton);
             this.Controls.Add(this.endButton);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.levelBox);
+            this.Controls.Add(this.modeBox);
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.learningModelLabel);
             this.Controls.Add(this.difficultyLabel);
@@ -197,13 +196,13 @@
         private System.Windows.Forms.Label difficultyLabel;
         private System.Windows.Forms.Label learningModelLabel;
         private System.Windows.Forms.Button startButton;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox modeBox;
+        private System.Windows.Forms.ComboBox levelBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button endButton;
         private System.Windows.Forms.Button BazaButton;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox translationBox;
     }
 }
 
