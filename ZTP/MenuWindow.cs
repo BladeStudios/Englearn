@@ -71,7 +71,7 @@ namespace ZTP
         {
             InitializeComponent();
             Database database = new Database();
-            database.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
+            database.loadData("PolishDictionary.txt");
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
