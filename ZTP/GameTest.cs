@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZTP
 {
-    class GameTest
+    class GameTest 
     {
         private int points;
 

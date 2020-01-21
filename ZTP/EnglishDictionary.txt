@@ -1,7 +1,6 @@
-cat
-dog
-elephant
 horse
 yellow
 blue
 window
+yellow
+mouseeee
