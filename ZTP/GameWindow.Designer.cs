@@ -143,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1005, 576);
             this.Controls.Add(this.answerEButton);
             this.Controls.Add(this.answerDButton);
             this.Controls.Add(this.answerCButton);
@@ -155,6 +155,7 @@
             this.Controls.Add(this.answerAButton);
             this.Name = "GameWindow";
             this.Text = "GameWindow";
+            this.Load += new System.EventHandler(this.GameWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

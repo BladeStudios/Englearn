@@ -12,16 +12,29 @@ namespace ZTP
 {
     public partial class DatabaseWindow : Form
     {
-        public DatabaseWindow()
+        private int selectedTranslation; //0-default, 1-polski-angielski, 2-angielski-polski
+        public DatabaseWindow(int selectedTranslation)
         {
             InitializeComponent();
-            Database db = new Database();
-            db.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
-            foreach (var c in db.getData())
+            loadData();
+        }
+
+        private void loadData()
+        {
+            Database dbPol = new Database();
+            Database dbEng = new Database();
+            dbPol.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
+            foreach (var c in dbPol.getData())
             {
-                listBox1.Items.Add(c);
-                
+                listBoxPol.Items.Add(c);
             }
+            dbEng.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+            foreach (var c in dbEng.getData())
+            {
+                listBoxEng.Items.Add(c);
+            }
+                
+
         }
 
         private void startButton_Click(object sender, EventArgs e)
@@ -47,6 +60,11 @@ namespace ZTP
             
             
             
+        }
+
+        private void DatabaseWindow_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

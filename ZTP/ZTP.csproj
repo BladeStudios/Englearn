@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DetailsDatabaseWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetailsDatabaseWindow.Designer.cs">
+      <DependentUpon>DetailsDatabaseWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameTest.cs" />
     <Compile Include="DatabaseWindow.cs">
       <SubType>Form</SubType>
@@ -73,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DatabaseWindow.resx">
       <DependentUpon>DatabaseWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetailsDatabaseWindow.resx">
+      <DependentUpon>DetailsDatabaseWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GameWindow.resx">
       <DependentUpon>GameWindow.cs</DependentUpon>

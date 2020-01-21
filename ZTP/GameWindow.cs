@@ -128,5 +128,10 @@ namespace ZTP
                 default: return "Tłumaczenie nieznane!";
             }
         }
+
+        private void GameWindow_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
