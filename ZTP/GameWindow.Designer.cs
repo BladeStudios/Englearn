@@ -32,11 +32,12 @@
             this.modeLabel = new System.Windows.Forms.Label();
             this.levelLabel = new System.Windows.Forms.Label();
             this.translationLabel = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.wordLabel = new System.Windows.Forms.Label();
             this.answerBButton = new System.Windows.Forms.Button();
             this.answerCButton = new System.Windows.Forms.Button();
             this.answerDButton = new System.Windows.Forms.Button();
             this.answerEButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // answerAButton
@@ -48,6 +49,7 @@
             this.answerAButton.TabIndex = 3;
             this.answerAButton.Text = "odpowiedźA";
             this.answerAButton.UseVisualStyleBackColor = true;
+            this.answerAButton.Click += new System.EventHandler(this.answerAButton_Click);
             // 
             // modeLabel
             // 
@@ -85,17 +87,17 @@
             this.translationLabel.Text = "Tłumaczenie: ";
             this.translationLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // label4
+            // wordLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(423, 117);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(127, 32);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "SŁOWO";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.wordLabel.AutoSize = true;
+            this.wordLabel.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.wordLabel.ForeColor = System.Drawing.Color.Black;
+            this.wordLabel.Location = new System.Drawing.Point(423, 117);
+            this.wordLabel.Name = "wordLabel";
+            this.wordLabel.Size = new System.Drawing.Size(127, 32);
+            this.wordLabel.TabIndex = 9;
+            this.wordLabel.Text = "SŁOWO";
+            this.wordLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // answerBButton
             // 
@@ -106,6 +108,7 @@
             this.answerBButton.TabIndex = 10;
             this.answerBButton.Text = "odpowiedźB";
             this.answerBButton.UseVisualStyleBackColor = true;
+            this.answerBButton.Click += new System.EventHandler(this.answerBButton_Click);
             // 
             // answerCButton
             // 
@@ -116,6 +119,7 @@
             this.answerCButton.TabIndex = 11;
             this.answerCButton.Text = "odpowiedźC";
             this.answerCButton.UseVisualStyleBackColor = true;
+            this.answerCButton.Click += new System.EventHandler(this.answerCButton_Click);
             // 
             // answerDButton
             // 
@@ -126,6 +130,7 @@
             this.answerDButton.TabIndex = 12;
             this.answerDButton.Text = "odpowiedźD";
             this.answerDButton.UseVisualStyleBackColor = true;
+            this.answerDButton.Click += new System.EventHandler(this.answerDButton_Click);
             // 
             // answerEButton
             // 
@@ -136,6 +141,18 @@
             this.answerEButton.TabIndex = 13;
             this.answerEButton.Text = "odpowiedźE";
             this.answerEButton.UseVisualStyleBackColor = true;
+            this.answerEButton.Click += new System.EventHandler(this.answerEButton_Click);
+            // 
+            // backButton
+            // 
+            this.backButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.backButton.Location = new System.Drawing.Point(749, 512);
+            this.backButton.Name = "backButton";
+            this.backButton.Size = new System.Drawing.Size(244, 52);
+            this.backButton.TabIndex = 14;
+            this.backButton.Text = "POWRÓT";
+            this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // GameWindow
             // 
@@ -143,11 +160,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1005, 576);
+            this.Controls.Add(this.backButton);
             this.Controls.Add(this.answerEButton);
             this.Controls.Add(this.answerDButton);
             this.Controls.Add(this.answerCButton);
             this.Controls.Add(this.answerBButton);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.wordLabel);
             this.Controls.Add(this.translationLabel);
             this.Controls.Add(this.levelLabel);
             this.Controls.Add(this.modeLabel);
@@ -165,10 +183,11 @@
         private System.Windows.Forms.Label modeLabel;
         private System.Windows.Forms.Label levelLabel;
         private System.Windows.Forms.Label translationLabel;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label wordLabel;
         private System.Windows.Forms.Button answerBButton;
         private System.Windows.Forms.Button answerCButton;
         private System.Windows.Forms.Button answerDButton;
         private System.Windows.Forms.Button answerEButton;
+        private System.Windows.Forms.Button backButton;
     }
 }
