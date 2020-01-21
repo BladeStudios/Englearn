@@ -113,7 +113,7 @@ namespace ZTP
         private void BazaButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DatabaseWindow db = new DatabaseWindow(getTranslation());
+            DatabaseWindow db = new DatabaseWindow();
             db.Closed += (s, args) => this.Close();
             db.Show();
         }

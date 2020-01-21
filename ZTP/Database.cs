@@ -53,19 +53,27 @@ namespace ZTP
             }
         }
 
+        public void ClearData()
+        {
+            data.Clear();
+        } // wyczyszczenie data
+
         public void addWord(string word)
         {
             data.Add(word);
         }
 
-        public void deleteWord(string word)
+        public void deleteWord(int word)
         {
-            data.Remove(data.LastIndexOf(word));
+            data.RemoveAt(word);
         }
-
-        public void editWord(string word, string newWord)
+        public void editWord(int word, string newWord)
         {
-            data[data.LastIndexOf(word)] = newWord;
+            data[word] = newWord;
+        }
+        public string getWord(int index)
+        {
+            return data[index].ToString();
         }
         public ArrayList getData()
         {

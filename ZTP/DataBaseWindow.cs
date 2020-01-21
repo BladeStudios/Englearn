@@ -7,29 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace ZTP
 {
     public partial class DatabaseWindow : Form
     {
-        private int selectedTranslation; //0-default, 1-polski-angielski, 2-angielski-polski
-        public DatabaseWindow(int selectedTranslation)
+       //0-default, 1-polski-angielski, 2-angielski-polski
+        Database dbPol = new Database();
+        Database dbEng = new Database();
+        private int Choise;
+        private string Word;
+        public DatabaseWindow()
         {
             InitializeComponent();
+
             loadData();
         }
 
         private void loadData()
         {
-            Database dbPol = new Database();
-            Database dbEng = new Database();
-            dbPol.loadData("PolishDictionary.txt");
+            dbPol.ClearData();
+            dbEng.ClearData();
+            listBoxPol.Items.Clear();
+            listBoxEng.Items.Clear();
+            dbPol.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
             foreach (var c in dbPol.getData())
             {
                 listBoxPol.Items.Add(c);
             }
-            dbEng.loadData("EnglishDictionary.txt");
+            dbEng.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
             foreach (var c in dbEng.getData())
             {
                 listBoxEng.Items.Add(c);
@@ -40,12 +46,33 @@ namespace ZTP
 
         private void startButton_Click(object sender, EventArgs e)
         {
-
+            DetailsDatabaseWindow detailsdata = new DetailsDatabaseWindow(1,-1);
+            detailsdata.ShowDialog();
+            loadData();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-
+            if (listBoxPol.SelectedIndex != -1 )
+            { 
+                dbPol.deleteWord(listBoxPol.SelectedIndex);
+                dbEng.deleteWord(listBoxPol.SelectedIndex);
+                dbPol.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
+                dbEng.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+                loadData();
+            }
+            else if( listBoxEng.SelectedIndex != -1)
+            {
+                dbPol.deleteWord(listBoxEng.SelectedIndex);
+                dbEng.deleteWord(listBoxEng.SelectedIndex);
+                dbPol.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
+                dbEng.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+                loadData();
+            }
+            else
+                MessageBox.Show("Nie wybrałeś słówka do usunięcia!");
+            
+            
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -66,6 +93,20 @@ namespace ZTP
         private void DatabaseWindow_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            if (listBoxPol.SelectedIndex != -1)
+                Choise = listBoxPol.SelectedIndex;
+            else if (listBoxEng.SelectedIndex != -1)
+                Choise = listBoxEng.SelectedIndex;
+            else
+                MessageBox.Show("Nie wybrałeś słówka do edycji!");
+
+            DetailsDatabaseWindow detailsdata = new DetailsDatabaseWindow(2,Choise);
+            detailsdata.ShowDialog();
+            loadData();
         }
     }
 }

@@ -69,6 +69,7 @@
             this.editButton.TabIndex = 5;
             this.editButton.Text = "EDYTUJ SŁOWO";
             this.editButton.UseVisualStyleBackColor = true;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // backButton
             // 
