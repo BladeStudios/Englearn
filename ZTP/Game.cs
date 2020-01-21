@@ -10,6 +10,7 @@ namespace ZTP
     {
         private int level; //poziom trudnosci: 0-easy, 1-medium, 2-hard, 3-ekspert
         private int mode; //tryb: 0-tryb nauki, 1-tryb testu
+        private int state; //przy ktorym pytaniu aktualnie jestesmy
 
         public Game(int level, int mode)
         {
@@ -36,6 +37,16 @@ namespace ZTP
         public void setMode(int mode)
         {
             this.mode = mode;
+        }
+
+        public int getState()
+        {
+            return this.state;
+        }
+
+        public void setState(int state)
+        {
+            this.state = state;
         }
     }
 }
