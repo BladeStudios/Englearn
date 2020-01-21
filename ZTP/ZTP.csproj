@@ -49,11 +49,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameTest.cs" />
-    <Compile Include="DataBaseWindow.cs">
+    <Compile Include="DatabaseWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataBaseWindow.Designer.cs">
-      <DependentUpon>DataBaseWindow.cs</DependentUpon>
+    <Compile Include="DatabaseWindow.Designer.cs">
+      <DependentUpon>DatabaseWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Database.cs" />
     <Compile Include="Game.cs" />
@@ -71,8 +71,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="DataBaseWindow.resx">
-      <DependentUpon>DataBaseWindow.cs</DependentUpon>
+    <EmbeddedResource Include="DatabaseWindow.resx">
+      <DependentUpon>DatabaseWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuWindow.resx">
       <DependentUpon>MenuWindow.cs</DependentUpon>

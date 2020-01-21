@@ -44,9 +44,10 @@
             // 
             this.difficultyLabel.AutoSize = true;
             this.difficultyLabel.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.difficultyLabel.Location = new System.Drawing.Point(229, 175);
+            this.difficultyLabel.Location = new System.Drawing.Point(433, 265);
+            this.difficultyLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.difficultyLabel.Name = "difficultyLabel";
-            this.difficultyLabel.Size = new System.Drawing.Size(344, 32);
+            this.difficultyLabel.Size = new System.Drawing.Size(434, 41);
             this.difficultyLabel.TabIndex = 0;
             this.difficultyLabel.Text = "POZIOM TRUDNOŚCI:";
             // 
@@ -54,9 +55,10 @@
             // 
             this.learningModelLabel.AutoSize = true;
             this.learningModelLabel.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.learningModelLabel.Location = new System.Drawing.Point(248, 88);
+            this.learningModelLabel.Location = new System.Drawing.Point(459, 158);
+            this.learningModelLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.learningModelLabel.Name = "learningModelLabel";
-            this.learningModelLabel.Size = new System.Drawing.Size(291, 32);
+            this.learningModelLabel.Size = new System.Drawing.Size(367, 41);
             this.learningModelLabel.TabIndex = 1;
             this.learningModelLabel.Text = "TRYB PROGRAMU:";
             this.learningModelLabel.Click += new System.EventHandler(this.learningModelLabel_Click);
@@ -64,9 +66,10 @@
             // startButton
             // 
             this.startButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.startButton.Location = new System.Drawing.Point(545, 373);
+            this.startButton.Location = new System.Drawing.Point(855, 509);
+            this.startButton.Margin = new System.Windows.Forms.Padding(4);
             this.startButton.Name = "startButton";
-            this.startButton.Size = new System.Drawing.Size(218, 52);
+            this.startButton.Size = new System.Drawing.Size(291, 64);
             this.startButton.TabIndex = 2;
             this.startButton.Text = "START";
             this.startButton.UseVisualStyleBackColor = true;
@@ -79,10 +82,10 @@
             this.comboBox1.Items.AddRange(new object[] {
             "TRYB NAUKI",
             "TRYB TESTU"});
-            this.comboBox1.Location = new System.Drawing.Point(254, 122);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox1.Location = new System.Drawing.Point(467, 200);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(285, 40);
+            this.comboBox1.Size = new System.Drawing.Size(379, 48);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -96,10 +99,10 @@
             "TRUDNY",
             "BARDZO TRUDNY",
             "EKSPERT"});
-            this.comboBox2.Location = new System.Drawing.Point(251, 209);
-            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBox2.Location = new System.Drawing.Point(463, 307);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(288, 40);
+            this.comboBox2.Size = new System.Drawing.Size(383, 48);
             this.comboBox2.TabIndex = 4;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -108,9 +111,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(315, 29);
+            this.label1.Location = new System.Drawing.Point(548, 86);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(157, 32);
+            this.label1.Size = new System.Drawing.Size(200, 41);
             this.label1.TabIndex = 5;
             this.label1.Text = "Englearn ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -119,9 +123,10 @@
             // endButton
             // 
             this.endButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.endButton.Location = new System.Drawing.Point(28, 373);
+            this.endButton.Location = new System.Drawing.Point(165, 509);
+            this.endButton.Margin = new System.Windows.Forms.Padding(4);
             this.endButton.Name = "endButton";
-            this.endButton.Size = new System.Drawing.Size(218, 52);
+            this.endButton.Size = new System.Drawing.Size(291, 64);
             this.endButton.TabIndex = 6;
             this.endButton.Text = "Wyjście";
             this.endButton.UseVisualStyleBackColor = true;
@@ -130,9 +135,10 @@
             // BazaButton
             // 
             this.BazaButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.BazaButton.Location = new System.Drawing.Point(286, 373);
+            this.BazaButton.Location = new System.Drawing.Point(509, 509);
+            this.BazaButton.Margin = new System.Windows.Forms.Padding(4);
             this.BazaButton.Name = "BazaButton";
-            this.BazaButton.Size = new System.Drawing.Size(218, 52);
+            this.BazaButton.Size = new System.Drawing.Size(291, 64);
             this.BazaButton.TabIndex = 7;
             this.BazaButton.Text = "Baza Danych";
             this.BazaButton.UseVisualStyleBackColor = true;
@@ -142,9 +148,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(255, 260);
+            this.label2.Location = new System.Drawing.Point(468, 370);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(284, 32);
+            this.label2.Size = new System.Drawing.Size(358, 41);
             this.label2.TabIndex = 8;
             this.label2.Text = "JĘZYK DO NAUKI:";
             // 
@@ -155,18 +162,18 @@
             this.comboBox3.Items.AddRange(new object[] {
             "ANGIELSKI",
             "POLSKI"});
-            this.comboBox3.Location = new System.Drawing.Point(251, 294);
-            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox3.Location = new System.Drawing.Point(463, 412);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(288, 40);
+            this.comboBox3.Size = new System.Drawing.Size(383, 48);
             this.comboBox3.TabIndex = 9;
             // 
             // MenuWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1340, 709);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BazaButton);
@@ -177,6 +184,7 @@
             this.Controls.Add(this.startButton);
             this.Controls.Add(this.learningModelLabel);
             this.Controls.Add(this.difficultyLabel);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MenuWindow";
             this.Text = "Englearn";
             this.ResumeLayout(false);
