@@ -19,6 +19,7 @@ namespace ZTP
         {
             InitializeComponent();
             Game game = new Game(selectedLevel, selectedMode);
+            game.setState(1); //ustawienie przy ktorym pytaniu jestesmy
         }
 
         //GETTERY I SETTERY
@@ -41,6 +42,11 @@ namespace ZTP
         public void setSelectedMode(int selectedMode)
         {
             this.selectedMode = selectedMode;
+        }
+
+        public void createButtons(int selectedMode) // tworzy odpowiednia ilosc i ulozenie buttonow zaleznie od wybranego trybu
+        {
+
         }
     }
 }

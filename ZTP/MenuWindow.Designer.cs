@@ -36,13 +36,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.endButton = new System.Windows.Forms.Button();
             this.BazaButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // difficultyLabel
             // 
             this.difficultyLabel.AutoSize = true;
             this.difficultyLabel.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.difficultyLabel.Location = new System.Drawing.Point(229, 209);
+            this.difficultyLabel.Location = new System.Drawing.Point(229, 175);
             this.difficultyLabel.Name = "difficultyLabel";
             this.difficultyLabel.Size = new System.Drawing.Size(344, 32);
             this.difficultyLabel.TabIndex = 0;
@@ -52,7 +54,7 @@
             // 
             this.learningModelLabel.AutoSize = true;
             this.learningModelLabel.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.learningModelLabel.Location = new System.Drawing.Point(248, 105);
+            this.learningModelLabel.Location = new System.Drawing.Point(248, 88);
             this.learningModelLabel.Name = "learningModelLabel";
             this.learningModelLabel.Size = new System.Drawing.Size(291, 32);
             this.learningModelLabel.TabIndex = 1;
@@ -77,7 +79,7 @@
             this.comboBox1.Items.AddRange(new object[] {
             "TRYB NAUKI",
             "TRYB TESTU"});
-            this.comboBox1.Location = new System.Drawing.Point(254, 158);
+            this.comboBox1.Location = new System.Drawing.Point(254, 122);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(285, 40);
@@ -94,7 +96,7 @@
             "TRUDNY",
             "BARDZO TRUDNY",
             "EKSPERT"});
-            this.comboBox2.Location = new System.Drawing.Point(251, 264);
+            this.comboBox2.Location = new System.Drawing.Point(251, 209);
             this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(288, 40);
@@ -136,12 +138,37 @@
             this.BazaButton.UseVisualStyleBackColor = true;
             this.BazaButton.Click += new System.EventHandler(this.BazaButton_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(255, 260);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(284, 32);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "JĘZYK DO NAUKI:";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "ANGIELSKI",
+            "POLSKI"});
+            this.comboBox3.Location = new System.Drawing.Point(251, 294);
+            this.comboBox3.Margin = new System.Windows.Forms.Padding(2);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(288, 40);
+            this.comboBox3.TabIndex = 9;
+            // 
             // MenuWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.BazaButton);
             this.Controls.Add(this.endButton);
             this.Controls.Add(this.label1);
@@ -167,6 +194,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button endButton;
         private System.Windows.Forms.Button BazaButton;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox3;
     }
 }
 
