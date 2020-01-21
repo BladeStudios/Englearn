@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ZTP
 {
@@ -23,12 +24,12 @@ namespace ZTP
         {
             Database dbPol = new Database();
             Database dbEng = new Database();
-            dbPol.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
+            dbPol.loadData("PolishDictionary.txt");
             foreach (var c in dbPol.getData())
             {
                 listBoxPol.Items.Add(c);
             }
-            dbEng.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+            dbEng.loadData("EnglishDictionary.txt");
             foreach (var c in dbEng.getData())
             {
                 listBoxEng.Items.Add(c);
