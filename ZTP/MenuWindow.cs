@@ -72,6 +72,12 @@ namespace ZTP
             InitializeComponent();
             Database database = new Database();
             database.loadData("PolishDictionary.txt");
+            modeBox.Text = "TRYB NAUKI";
+            setMode(modeBox.Text);
+            levelBox.Text = "ŁATWY";
+            setLevel(levelBox.Text);
+            translationBox.Text = "POLSKI-ANGIELSKI";
+            setTranslation(translationBox.Text);
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)

@@ -2,5 +2,5 @@ koń
 żółty
 niebieski
 okno
-żółty
-mysz
+
+123

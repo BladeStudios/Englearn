@@ -24,8 +24,8 @@ namespace ZTP
         {
             InitializeComponent();
             choise = index;
-            dbPol.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
-            dbEng.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+            dbPol.loadData("PolishDictionary.txt");
+            dbEng.loadData("EnglishDictionary.txt");
             if(choise == 2 )
             {
                 indexEdit = selectedIndexWord;
@@ -41,21 +41,58 @@ namespace ZTP
             Pol = richTextBox1.Text;
             Eng = richTextBox2.Text;
             if (choise == 1)
-            { 
-                dbPol.addWord(Pol);
-                dbEng.addWord(Eng);
+            {
+                if ( richTextBox1.Text != "" && richTextBox2.Text != ""  )
+                {
+                    if (sprawdz_wyraz(richTextBox1.Text) && sprawdz_wyraz(richTextBox2.Text))
+                    {
+                        dbPol.addWord(Pol);
+                        dbEng.addWord(Eng);
+                        MessageBox.Show("Sukces!!");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Złe Dane!!");
+                }
+                else
+                    MessageBox.Show("Puste pola!!");
+                
             }
             else if(choise == 2)
             {
-                dbPol.editWord(indexEdit, Pol);
-                dbEng.editWord(indexEdit, Eng);
-            }
-            MessageBox.Show("Sukces!!");
-            dbPol.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
-            dbEng.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+                if (richTextBox1.Text != "" && richTextBox2.Text != "")
+                {
+                    if (sprawdz_wyraz(richTextBox1.Text) && sprawdz_wyraz(richTextBox2.Text))
+                    {
+                        dbPol.editWord(indexEdit, Pol);
+                        dbEng.editWord(indexEdit, Eng);
+                        MessageBox.Show("Sukces!!");
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Złe Dane!!");
+                }
+                else
+                    MessageBox.Show("Puste pola!!");
 
+            }
+            
+            dbPol.saveData("PolishDictionary.txt");
+            dbEng.saveData("EnglishDictionary.txt");
+            
+
+        }
+
+        private bool sprawdz_wyraz(string wyraz)
+        {
+            foreach(var znak in wyraz)
+            {
+                if (!Char.IsLetter(znak))
+                    return false;
+            }
+            return true;
         }
 
         private void back_Button(object sender, EventArgs e)

@@ -12,7 +12,7 @@ namespace ZTP
 {
     public partial class DatabaseWindow : Form
     {
-       //0-default, 1-polski-angielski, 2-angielski-polski
+        //0-default, 1-polski-angielski, 2-angielski-polski
         Database dbPol = new Database();
         Database dbEng = new Database();
         private int Choise;
@@ -30,49 +30,49 @@ namespace ZTP
             dbEng.ClearData();
             listBoxPol.Items.Clear();
             listBoxEng.Items.Clear();
-            dbPol.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
+            dbPol.loadData("PolishDictionary.txt");
             foreach (var c in dbPol.getData())
             {
                 listBoxPol.Items.Add(c);
             }
-            dbEng.loadData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+            dbEng.loadData("EnglishDictionary.txt");
             foreach (var c in dbEng.getData())
             {
                 listBoxEng.Items.Add(c);
             }
-                
+
 
         }
 
         private void startButton_Click(object sender, EventArgs e)
         {
-            DetailsDatabaseWindow detailsdata = new DetailsDatabaseWindow(1,-1);
+            DetailsDatabaseWindow detailsdata = new DetailsDatabaseWindow(1, -1);
             detailsdata.ShowDialog();
             loadData();
         }
 
         private void deleteButton_Click(object sender, EventArgs e)
         {
-            if (listBoxPol.SelectedIndex != -1 )
-            { 
+            if (listBoxPol.SelectedIndex != -1)
+            {
                 dbPol.deleteWord(listBoxPol.SelectedIndex);
                 dbEng.deleteWord(listBoxPol.SelectedIndex);
-                dbPol.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
-                dbEng.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+                dbPol.saveData("PolishDictionary.txt");
+                dbEng.saveData("EnglishDictionary.txt");
                 loadData();
             }
-            else if( listBoxEng.SelectedIndex != -1)
+            else if (listBoxEng.SelectedIndex != -1)
             {
                 dbPol.deleteWord(listBoxEng.SelectedIndex);
                 dbEng.deleteWord(listBoxEng.SelectedIndex);
-                dbPol.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\PolishDictionary.txt");
-                dbEng.saveData("C:\\Users\\Maksi\\Source\\Repos\\BladeStudios\\Englearn\\ZTP\\EnglishDictionary.txt");
+                dbPol.saveData("PolishDictionary.txt");
+                dbEng.saveData("EnglishDictionary.txt");
                 loadData();
             }
             else
                 MessageBox.Show("Nie wybrałeś słówka do usunięcia!");
-            
-            
+
+
         }
 
         private void backButton_Click(object sender, EventArgs e)
@@ -85,9 +85,9 @@ namespace ZTP
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            
-            
+
+
+
         }
 
         private void DatabaseWindow_Load(object sender, EventArgs e)
@@ -97,16 +97,23 @@ namespace ZTP
 
         private void editButton_Click(object sender, EventArgs e)
         {
+            DetailsDatabaseWindow detailsdata = new DetailsDatabaseWindow(2, Choise);
             if (listBoxPol.SelectedIndex != -1)
+            {
                 Choise = listBoxPol.SelectedIndex;
+                detailsdata.ShowDialog();
+                loadData();
+            }
             else if (listBoxEng.SelectedIndex != -1)
+            {
                 Choise = listBoxEng.SelectedIndex;
+                detailsdata.ShowDialog();
+                loadData();
+            }
             else
                 MessageBox.Show("Nie wybrałeś słówka do edycji!");
 
-            DetailsDatabaseWindow detailsdata = new DetailsDatabaseWindow(2,Choise);
-            detailsdata.ShowDialog();
-            loadData();
+
         }
     }
 }
