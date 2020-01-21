@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace ZTP
 {
-    class GameTest
+    class GameTest : Game
     {
         private int points;
+
+       public GameTest(int level, int mode) : base(level, mode)
+        {
+            setLevel(level);
+            setMode(mode);
+        }
 
         public int getPoints()
         {

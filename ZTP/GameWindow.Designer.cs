@@ -42,7 +42,7 @@
             // answerAButton
             // 
             this.answerAButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.answerAButton.Location = new System.Drawing.Point(156, 162);
+            this.answerAButton.Location = new System.Drawing.Point(260, 162);
             this.answerAButton.Name = "answerAButton";
             this.answerAButton.Size = new System.Drawing.Size(473, 41);
             this.answerAButton.TabIndex = 3;
@@ -60,7 +60,6 @@
             this.modeLabel.TabIndex = 6;
             this.modeLabel.Text = "Tryb programu: ";
             this.modeLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.modeLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // levelLabel
             // 
@@ -91,7 +90,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(325, 118);
+            this.label4.Location = new System.Drawing.Point(423, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(127, 32);
             this.label4.TabIndex = 9;
@@ -101,7 +100,7 @@
             // answerBButton
             // 
             this.answerBButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.answerBButton.Location = new System.Drawing.Point(156, 209);
+            this.answerBButton.Location = new System.Drawing.Point(260, 209);
             this.answerBButton.Name = "answerBButton";
             this.answerBButton.Size = new System.Drawing.Size(473, 41);
             this.answerBButton.TabIndex = 10;
@@ -111,7 +110,7 @@
             // answerCButton
             // 
             this.answerCButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.answerCButton.Location = new System.Drawing.Point(156, 256);
+            this.answerCButton.Location = new System.Drawing.Point(260, 256);
             this.answerCButton.Name = "answerCButton";
             this.answerCButton.Size = new System.Drawing.Size(473, 41);
             this.answerCButton.TabIndex = 11;
@@ -121,7 +120,7 @@
             // answerDButton
             // 
             this.answerDButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.answerDButton.Location = new System.Drawing.Point(156, 303);
+            this.answerDButton.Location = new System.Drawing.Point(260, 303);
             this.answerDButton.Name = "answerDButton";
             this.answerDButton.Size = new System.Drawing.Size(473, 41);
             this.answerDButton.TabIndex = 12;
@@ -131,7 +130,7 @@
             // answerEButton
             // 
             this.answerEButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.answerEButton.Location = new System.Drawing.Point(156, 350);
+            this.answerEButton.Location = new System.Drawing.Point(260, 350);
             this.answerEButton.Name = "answerEButton";
             this.answerEButton.Size = new System.Drawing.Size(473, 41);
             this.answerEButton.TabIndex = 13;
@@ -155,7 +154,6 @@
             this.Controls.Add(this.answerAButton);
             this.Name = "GameWindow";
             this.Text = "GameWindow";
-            this.Load += new System.EventHandler(this.GameWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

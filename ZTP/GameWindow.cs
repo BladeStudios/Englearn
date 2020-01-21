@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace ZTP
@@ -91,11 +84,6 @@ namespace ZTP
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public string getLevelName(int level)
         {
             switch(level)
@@ -127,11 +115,6 @@ namespace ZTP
                 case 2: return "ANGIELSKI-POLSKI";
                 default: return "Tłumaczenie nieznane!";
             }
-        }
-
-        private void GameWindow_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections;
 
 namespace ZTP
 {
@@ -47,6 +48,13 @@ namespace ZTP
         public void setState(int state)
         {
             this.state = state;
+        }
+
+        public ArrayList getDictionary(string filename)
+        {
+            Database database = new Database();
+            database.loadData(filename);
+            return database.getData();
         }
     }
 }
