@@ -42,7 +42,7 @@ namespace ZTP
             englishDictionary.loadData("EnglishDictionary.txt");
             englishWords = englishDictionary.getData();
 
-            onChangeState(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
+            onChangeQuestion(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
         }
 
         //GETTERY I SETTERY
@@ -149,7 +149,7 @@ namespace ZTP
             {
                 
                 game.setQuestionNumber(game.getQuestionNumber()+1);
-                onChangeState(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
+                onChangeQuestion(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
             }
         }
 
@@ -185,7 +185,7 @@ namespace ZTP
 
         }
 
-        public void onChangeState(ArrayList polishWords, ArrayList englishWords, int selectedTranslation, int selectedLevel, int selectedMode, Game g)
+        public void onChangeQuestion(ArrayList polishWords, ArrayList englishWords, int selectedTranslation, int selectedLevel, int selectedMode, Game g)
         {
             Licz = 3;
             if(g.getQuestionNumber()==20 && selectedMode==2)
@@ -271,7 +271,7 @@ namespace ZTP
         {
             if (game.getGoodAnswerIndex() == index)
             {
-                onChangeState(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
+                onChangeQuestion(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
             }
             else
             {
