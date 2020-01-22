@@ -97,8 +97,9 @@ namespace ZTP
             setLevel(levelBox.Text);
             setTranslation(translationBox.Text);
             GameWindow game = new GameWindow(getLevel(),getMode(),getTranslation());
-            game.Closed += (s, args) => this.Close();
             game.Show();
+            game.Closed += (s, args) => this.Close();
+            
         }
 
         private void learningModelLabel_Click(object sender, EventArgs e)
