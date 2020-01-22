@@ -30,7 +30,7 @@ namespace ZTP
             }
             catch (Exception e)
             {
-                MessageBox.Show("error load File");
+                MessageBox.Show("Cannot load file. Error: " + e.ToString());
             }
         }
 
@@ -49,7 +49,7 @@ namespace ZTP
             }
             catch (Exception e)
             {
-                MessageBox.Show("error save File");
+                MessageBox.Show("Cannot save file. Error: " + e.ToString());
             }
         }
 

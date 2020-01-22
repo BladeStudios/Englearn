@@ -149,7 +149,7 @@ namespace ZTP
             {
                 
                 game.setQuestionNumber(game.getQuestionNumber()+1);
-                onChangeState( polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
+                onChangeState(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
             }
         }
 

@@ -16,11 +16,9 @@ namespace ZTP
         Database dbPol = new Database();
         Database dbEng = new Database();
         private int Choise;
-        private string Word;
         public DatabaseWindow()
         {
             InitializeComponent();
-
             loadData();
         }
 
