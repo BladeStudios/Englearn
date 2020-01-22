@@ -39,5 +39,13 @@ namespace ZTP
         {
 
         }
+        public override int getQuestionNumber()
+        {
+            return 0;
+        }
+        public override void setQuestionNumber(int QuestionNumber)
+        {
+            
+        }
     }
 }
