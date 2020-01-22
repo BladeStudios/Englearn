@@ -10,8 +10,9 @@ namespace ZTP
     {
         private int points;
         private int licznik;
+        private int questionNumber; //przy ktorym pytaniu aktualnie jestesmy
 
-       public GameTest(int level) : base(level)
+        public GameTest(int level) : base(level)
         {
             switch (level)
             {
@@ -41,6 +42,15 @@ namespace ZTP
         public override void setLicznik(int licznik)
         {
             this.licznik = licznik;
+        }
+        public override int getQuestionNumber()
+        {
+            return this.questionNumber;
+        }
+
+        public override void setQuestionNumber(int number)
+        {
+            this.questionNumber = number;
         }
     }
 }

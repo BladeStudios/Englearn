@@ -13,7 +13,8 @@ namespace ZTP
         public Game game;
         public ArrayList polishWords; //przechowuje liste polskich slow wczytanych z pliku
         public ArrayList englishWords; //przechowuje liste angielskich slow wczytanych z pliku
-        private int Licz = 3; 
+        private int Licz = 3;
+        private int wordIndex;
 
         public GameWindow(int selectedLevel, int selectedMode, int selectedTranslation)
         {
@@ -22,11 +23,18 @@ namespace ZTP
             setSelectedMode(selectedMode);
             setSelectedTranslation(selectedTranslation);
             if (selectedMode == 1)
+            {
+                questionLabel.Visible = false;
                 game = new GameLearning(selectedLevel);
+            }
             else
+            {
                 game = new GameTest(selectedLevel);
+                questionLabel.Visible = true;
+            }
             game.setQuestionNumber(1); //ustawienie przy ktorym pytaniu jestesmy
             game.setButtonsVisibility(answerAButton, answerBButton, answerCButton, answerDButton, answerEButton, answerBox, enterButton);
+            pointsLabel.Visible = false;
 
             Database polishDictionary = new Database();
             polishDictionary.loadData("PolishDictionary.txt");
@@ -142,14 +150,19 @@ namespace ZTP
             game.setLicznik(Licz);
             licznikLabel.Text = "Czas:" + game.getLicznik();
             game.setLicznik(--Licz);
-            if (Licz == -1)
+           
+            if (Licz == 0 && game.getQuestionNumber() <= 20)
             {
-                game.setQuestionNumber(game.getQuestionNumber()+1);
                 if(selectedTranslation==1)
                     onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
                 else if(selectedTranslation==2)
                     onChangeQuestion(englishWords, polishWords, selectedLevel, selectedMode, game);
             }
+            else 
+            {
+                
+            }
+            
         }
 
         public string getTranslationName(int translation) //zwraca nazwe tlumaczenia
@@ -187,7 +200,8 @@ namespace ZTP
         public void onChangeQuestion(ArrayList firstDictionary, ArrayList secondDictionary, int selectedLevel, int selectedMode, Game g)
         {
             Licz = 3;
-            if(g.getQuestionNumber()==20 && selectedMode==2)
+            questionLabel.Text = "PYTANIE NUMER: " + g.getQuestionNumber() + "/20"; 
+            if(g.getQuestionNumber()==21 && selectedMode==2)
             {
                 wordLabel.Visible = false;
                 answerAButton.Visible = false;
@@ -197,6 +211,10 @@ namespace ZTP
                 answerEButton.Visible = false;
                 answerBox.Visible = false;
                 enterButton.Visible = false;
+                pointsLabel.Visible = true;
+                pointsLabel.Text = "TWOJE ZDOBYTE PUNKTY:" + g.getPoints().ToString();
+                licznikLabel.Visible = false;
+                pointsLabel.Visible = false;
             }
             //zmiana tła wszystkich odpowiedzi na biały
             answerAButton.BackColor = System.Drawing.Color.White;
@@ -207,7 +225,7 @@ namespace ZTP
             //lista przechowujaca indeksy slow ze slownika tak, aby na jej podstawie zapobiec powtarzaniu sie odpowiedzi
             List<int> list = new List<int>();
             //wylosowanie indexu slowa do odgadniecia
-            int wordIndex = g.getRandom(0, firstDictionary.Count-1);
+            wordIndex = g.getRandom(0, firstDictionary.Count-1);
             //dodanie indeksu do listy
             list.Add(wordIndex);
             //wpisanie wartosci spod wylosowanego indeksu jako wordLabel
@@ -271,6 +289,7 @@ namespace ZTP
         {
             if (game.getGoodAnswerIndex() == index)
             {
+                game.setPoints(game.getPoints()+1);
                 if(selectedTranslation==1)
                     onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
                 else if(selectedTranslation==2)
@@ -279,7 +298,26 @@ namespace ZTP
             else
             {
                 button.BackColor = System.Drawing.Color.Red;
+                if (selectedTranslation == 1)
+                    onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
+                else if (selectedTranslation == 2)
+                    onChangeQuestion(englishWords, polishWords, selectedLevel, selectedMode, game);
+                game.setPoints(game.getPoints() + 0);
             }
+        }
+        public void checkAnswerText()
+        {
+            answerBox.BackColor = System.Drawing.Color.White;
+            if (englishWords.IndexOf(answerBox.Text) == wordIndex)
+            {
+                onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
+            }
+            else
+            {
+                answerBox.BackColor = System.Drawing.Color.Red;
+            }
+            answerBox.Text = "";
+           
         }
 
         private void answerAButton_Click(object sender, EventArgs e)
@@ -314,5 +352,17 @@ namespace ZTP
             menu.Closed += (s, args) => this.Close();
             menu.Show();
         }
+
+        private void answerBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void enterButton_Click(object sender, EventArgs e)
+        {
+            checkAnswerText();
+        }
+
+       
     }
 }
