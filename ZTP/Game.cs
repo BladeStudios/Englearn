@@ -81,8 +81,6 @@ namespace ZTP
         public int getRandom(int min, int max)
         {
             Random random = new Random();
-            //int rnd = random.Next(min, max);
-            //return rnd;
             return random.Next(min, max+1);
         }
 
