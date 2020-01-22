@@ -147,8 +147,8 @@ namespace ZTP
             if (Licz == -1)
             {
                 
-                game.setState(game.getState()+1);
-                onChangeState(game.getState(), polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
+                game.setQuestionNumber(game.getQuestionNumber()+1);
+                onChangeState(game.getQuestionNumber(), polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
             }
         }
 
