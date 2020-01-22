@@ -74,6 +74,7 @@
             // 
             // modeBox
             // 
+            this.modeBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modeBox.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
             this.modeBox.FormattingEnabled = true;
             this.modeBox.Items.AddRange(new object[] {
@@ -88,6 +89,7 @@
             // 
             // levelBox
             // 
+            this.levelBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.levelBox.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
             this.levelBox.FormattingEnabled = true;
             this.levelBox.Items.AddRange(new object[] {
@@ -151,6 +153,7 @@
             // 
             // translationBox
             // 
+            this.translationBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.translationBox.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
             this.translationBox.FormattingEnabled = true;
             this.translationBox.Items.AddRange(new object[] {

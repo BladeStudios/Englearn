@@ -53,6 +53,7 @@
             this.answerAButton.Text = "odpowiedźA";
             this.answerAButton.UseVisualStyleBackColor = true;
             this.answerAButton.Click += new System.EventHandler(this.answerAButton_Click);
+            
             // 
             // modeLabel
             // 
@@ -175,6 +176,7 @@
             this.enterButton.TabIndex = 16;
             this.enterButton.Text = "DALEJ";
             this.enterButton.UseVisualStyleBackColor = true;
+            this.enterButton.Click += new System.EventHandler(this.enterButton_Click);
             // 
             // licznikLabel
             // 

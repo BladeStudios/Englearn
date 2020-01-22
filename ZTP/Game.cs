@@ -8,13 +8,13 @@ using System.Windows.Forms;
 
 namespace ZTP
 {
-    public class Game
+    public abstract class Game
     {
         protected GameLevel level; //0-default, 1-łatwy, 2-sredni, 3-trudny, 4-bardzo trudny, 5-ekspert
         private int mode; //0-default, 1-tryb nauki, 2-tryb testu
-        private int questionNumber; //przy ktorym pytaniu aktualnie jestesmy
         private int goodAnswerIndex; //indeks prawidlowej odpowiedzi: 1-A, 2-B itd.
- 
+
+
 
         public Game(int level, int mode)
         {
@@ -54,16 +54,6 @@ namespace ZTP
         public void setMode(int mode)
         {
             this.mode = mode;
-        }
-
-        public int getQuestionNumber()
-        {
-            return this.questionNumber;
-        }
-
-        public void setQuestionNumber(int number)
-        {
-            this.questionNumber = number;
         }
 
         public int getGoodAnswerIndex()
