@@ -21,7 +21,10 @@ namespace ZTP
             setSelectedLevel(selectedLevel);
             setSelectedMode(selectedMode);
             setSelectedTranslation(selectedTranslation);
-            game = new Game(selectedLevel, selectedMode);
+            if (selectedMode == 1)
+                game = new GameLearning(selectedLevel);
+            else
+                game = new GameTest(selectedLevel);
             game.setQuestionNumber(1); //ustawienie przy ktorym pytaniu jestesmy
             if(answerEButton.Visible==false)
             {
@@ -42,7 +45,10 @@ namespace ZTP
             englishDictionary.loadData("EnglishDictionary.txt");
             englishWords = englishDictionary.getData();
 
-            onChangeQuestion(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
+            if(selectedTranslation==1)
+                onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
+            else if(selectedTranslation==2)
+                onChangeQuestion(englishWords, polishWords, selectedLevel, selectedMode, game);
         }
 
         //GETTERY I SETTERY
@@ -141,15 +147,17 @@ namespace ZTP
 
         private void nextQuestion(object sender, EventArgs e)
         {
-            GameTest gameT = new GameTest(getSelectedLevel(), getSelectedMode());
-            gameT.setLicznik(Licz);
-            licznikLabel.Text = "Czas:" + gameT.getLicznik();
-            gameT.setLicznik(--Licz);
+            //GameTest gameT = new GameTest(getSelectedLevel(), getSelectedMode());
+            game.setLicznik(Licz);
+            licznikLabel.Text = "Czas:" + game.getLicznik();
+            game.setLicznik(--Licz);
             if (Licz == -1)
             {
-                
                 game.setQuestionNumber(game.getQuestionNumber()+1);
-                onChangeQuestion(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
+                if(selectedTranslation==1)
+                    onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
+                else if(selectedTranslation==2)
+                    onChangeQuestion(englishWords, polishWords, selectedLevel, selectedMode, game);
             }
         }
 
@@ -185,7 +193,7 @@ namespace ZTP
 
         }
 
-        public void onChangeQuestion(ArrayList polishWords, ArrayList englishWords, int selectedTranslation, int selectedLevel, int selectedMode, Game g)
+        public void onChangeQuestion(ArrayList firstDictionary, ArrayList secondDictionary, int selectedLevel, int selectedMode, Game g)
         {
             Licz = 3;
             if(g.getQuestionNumber()==20 && selectedMode==2)
@@ -196,6 +204,8 @@ namespace ZTP
                 answerCButton.Visible = false;
                 answerDButton.Visible = false;
                 answerEButton.Visible = false;
+                answerBox.Visible = false;
+                enterButton.Visible = false;
             }
             //zmiana tła wszystkich odpowiedzi na biały
             answerAButton.BackColor = System.Drawing.Color.White;
@@ -206,12 +216,11 @@ namespace ZTP
             //lista przechowujaca indeksy slow ze slownika tak, aby na jej podstawie zapobiec powtarzaniu sie odpowiedzi
             List<int> list = new List<int>();
             //wylosowanie indexu slowa do odgadniecia
-            int wordIndex = g.getRandom(0, polishWords.Count-1);
+            int wordIndex = g.getRandom(0, firstDictionary.Count-1);
             //dodanie indeksu do listy
             list.Add(wordIndex);
             //wpisanie wartosci spod wylosowanego indeksu jako wordLabel
-            //if (selectedTranslation == 1)
-                wordLabel.Text = polishWords[wordIndex].ToString();
+            wordLabel.Text = firstDictionary[wordIndex].ToString();
             //wylosowanie, która odpowiedz bedzie prawdziwa
             g.setGoodAnswerIndex(g.getRandom(1, selectedLevel + 1)); //1-odpowiedzA, 2-odpowiedzB itd.
             //wpisanie poprawnej odpowiedzi pod odpowiedni button
@@ -219,46 +228,46 @@ namespace ZTP
             {
                 case 1:
                     {
-                        answerAButton.Text = englishWords[wordIndex].ToString();
-                        answerBButton.Text = englishWords[g.getWrongAnswerIndex(list,polishWords.Count-1)].ToString();
-                        answerCButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerDButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerEButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
+                        answerAButton.Text = secondDictionary[wordIndex].ToString();
+                        answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list,firstDictionary.Count-1)].ToString();
+                        answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
                     } break;
                 case 2:
                     {
-                        answerAButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerBButton.Text = englishWords[wordIndex].ToString();
-                        answerCButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerDButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerEButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
+                        answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerBButton.Text = secondDictionary[wordIndex].ToString();
+                        answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
                     }
                     break;
                 case 3:
                     {
-                        answerAButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerBButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerCButton.Text = englishWords[wordIndex].ToString();
-                        answerDButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerEButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
+                        answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerCButton.Text = secondDictionary[wordIndex].ToString();
+                        answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
                     }
                     break;
                 case 4:
                     {
-                        answerAButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerBButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerCButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerDButton.Text = englishWords[wordIndex].ToString();
-                        answerEButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
+                        answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerDButton.Text = secondDictionary[wordIndex].ToString();
+                        answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
                     }
                     break;
                 case 5:
                     {
-                        answerAButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerBButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerCButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerDButton.Text = englishWords[g.getWrongAnswerIndex(list, polishWords.Count - 1)].ToString();
-                        answerEButton.Text = englishWords[wordIndex].ToString();
+                        answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        answerEButton.Text = secondDictionary[wordIndex].ToString();
                     }
                     break;
                 default: MessageBox.Show("Error: GameWindow.cs:onChangeState"); break;
@@ -271,7 +280,10 @@ namespace ZTP
         {
             if (game.getGoodAnswerIndex() == index)
             {
-                onChangeQuestion(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
+                if(selectedTranslation==1)
+                    onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
+                else if(selectedTranslation==2)
+                    onChangeQuestion(englishWords, polishWords, selectedLevel, selectedMode, game);
             }
             else
             {

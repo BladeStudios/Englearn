@@ -6,31 +6,39 @@ using System.Threading.Tasks;
 
 namespace ZTP
 {
-    class GameTest : Game
+    class GameTest : GameMode
     {
         private int points;
         private int licznik;
 
-       public GameTest(int level, int mode) : base(level, mode)
+       public GameTest(int level) : base(level)
         {
-            setMode(mode);
+            switch (level)
+            {
+                case 1: this.level = new EasyLevel(); break;
+                case 2: this.level = new MediumLevel(); break;
+                case 3: this.level = new HardLevel(); break;
+                case 4: this.level = new VeryHardLevel(); break;
+                case 5: this.level = new ExpertLevel(); break;
+                default: this.level = new EasyLevel(); break;
+            }
         }
 
-        public int getPoints()
+        public override int getPoints()
         {
             return this.points;
         }
 
-        public void setPoints(int points)
+        public override void setPoints(int points)
         {
             this.points = points;
         }
-        public int getLicznik()
+        public override int getLicznik()
         {
             return this.licznik;
         }
 
-        public void setLicznik(int licznik)
+        public override void setLicznik(int licznik)
         {
             this.licznik = licznik;
         }

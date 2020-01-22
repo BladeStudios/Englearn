@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ZTP
 {
-    class GameLearning : GameMode
+    public abstract class GameMode : Game
     {
-        public GameLearning(int level) : base(level)
+        public GameMode(int level) : base(level)
         {
             switch (level)
             {
@@ -19,25 +19,6 @@ namespace ZTP
                 case 5: this.level = new ExpertLevel(); break;
                 default: this.level = new EasyLevel(); break;
             }
-        }
-
-        public override int getPoints()
-        {
-            return 0;
-        }
-
-        public override void setPoints(int points)
-        {
-
-        }
-        public override int getLicznik()
-        {
-            return 0;
-        }
-
-        public override void setLicznik(int licznik)
-        {
-
         }
     }
 }

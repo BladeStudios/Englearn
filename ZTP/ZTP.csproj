@@ -58,6 +58,7 @@
     <Compile Include="ExpertLevel.cs" />
     <Compile Include="GameLevel.cs" />
     <Compile Include="GameLearning.cs" />
+    <Compile Include="GameMode.cs" />
     <Compile Include="GameTest.cs" />
     <Compile Include="DatabaseWindow.cs">
       <SubType>Form</SubType>
