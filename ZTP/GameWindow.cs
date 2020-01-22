@@ -26,15 +26,6 @@ namespace ZTP
             else
                 game = new GameTest(selectedLevel);
             game.setQuestionNumber(1); //ustawienie przy ktorym pytaniu jestesmy
-            if(answerEButton.Visible==false)
-            {
-                answerAButton.Visible = true;
-                answerBButton.Visible = true;
-                answerCButton.Visible = true;
-                answerDButton.Visible = true;
-                answerEButton.Visible = true;
-            }
-            //createButtons(selectedLevel);
             game.setButtonsVisibility(answerAButton, answerBButton, answerCButton, answerDButton, answerEButton, answerBox, enterButton);
 
             Database polishDictionary = new Database();

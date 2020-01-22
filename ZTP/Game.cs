@@ -90,8 +90,9 @@ namespace ZTP
         public int getRandom(int min, int max)
         {
             Random random = new Random();
-            int rnd = random.Next(min, max);
-            return rnd;
+            //int rnd = random.Next(min, max);
+            //return rnd;
+            return random.Next(min, max+1);
         }
 
         public string getWord(ArrayList dictionary, int index)
@@ -102,7 +103,7 @@ namespace ZTP
         public int getWrongAnswerIndex(List<int> numbersToNotGenerate, int maxIndex)
         {
             int rnd;
-            bool generated = true;
+            bool generated;
             do
             {
                 rnd = getRandom(0, maxIndex);
