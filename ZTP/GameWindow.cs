@@ -151,7 +151,7 @@ namespace ZTP
             licznikLabel.Text = "Czas:" + game.getLicznik();
             game.setLicznik(--Licz);
            
-            if (Licz == 0 && game.getQuestionNumber() <= 20)
+            if (Licz == -1 && game.getQuestionNumber() <= 21)
             {
                 if(selectedTranslation==1)
                     onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
@@ -214,7 +214,7 @@ namespace ZTP
                 pointsLabel.Visible = true;
                 pointsLabel.Text = "TWOJE ZDOBYTE PUNKTY:" + g.getPoints().ToString();
                 licznikLabel.Visible = false;
-                pointsLabel.Visible = false;
+                questionLabel.Visible = false;
             }
             //zmiana tła wszystkich odpowiedzi na biały
             answerAButton.BackColor = System.Drawing.Color.White;
