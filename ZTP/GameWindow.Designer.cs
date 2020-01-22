@@ -187,7 +187,7 @@
             this.licznikLabel.TabIndex = 15;
             this.licznikLabel.Text = "Czas: ";
             this.licznikLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.licznikLabel.Click += new System.EventHandler(this.licznikLabel_Click);
+
             // 
             // GameWindow
             // 

@@ -10,7 +10,7 @@ namespace ZTP
     {
         public GameLearning(int level, int mode) : base(level, mode)
         {
-            setLevel(level);
+           // setLevel(level);
             setMode(mode);
         }
     }
