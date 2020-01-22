@@ -267,7 +267,7 @@ namespace ZTP
             g.setQuestionNumber(g.getQuestionNumber() + 1);
         }
 
-        public void checkAnswer(int index, Button button)
+        public void checkAnswer(int index, Button button) //index - jest to numer buttona z odpowiedziami, button - jest to obiekt tego buttona
         {
             if (game.getGoodAnswerIndex() == index)
             {

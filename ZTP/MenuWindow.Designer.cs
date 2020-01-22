@@ -79,10 +79,10 @@
             this.modeBox.Items.AddRange(new object[] {
             "TRYB NAUKI",
             "TRYB TESTU"});
-            this.modeBox.Location = new System.Drawing.Point(335, 162);
+            this.modeBox.Location = new System.Drawing.Point(305, 162);
             this.modeBox.Margin = new System.Windows.Forms.Padding(2);
             this.modeBox.Name = "modeBox";
-            this.modeBox.Size = new System.Drawing.Size(300, 40);
+            this.modeBox.Size = new System.Drawing.Size(356, 40);
             this.modeBox.TabIndex = 3;
             this.modeBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -96,10 +96,10 @@
             "TRUDNY",
             "BARDZO TRUDNY",
             "EKSPERT"});
-            this.levelBox.Location = new System.Drawing.Point(335, 246);
+            this.levelBox.Location = new System.Drawing.Point(305, 246);
             this.levelBox.Margin = new System.Windows.Forms.Padding(2);
             this.levelBox.Name = "levelBox";
-            this.levelBox.Size = new System.Drawing.Size(300, 40);
+            this.levelBox.Size = new System.Drawing.Size(356, 40);
             this.levelBox.TabIndex = 4;
             this.levelBox.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
@@ -156,10 +156,10 @@
             this.translationBox.Items.AddRange(new object[] {
             "POLSKI-ANGIELSKI",
             "ANGIELSKI-POLSKI"});
-            this.translationBox.Location = new System.Drawing.Point(335, 343);
+            this.translationBox.Location = new System.Drawing.Point(305, 343);
             this.translationBox.Margin = new System.Windows.Forms.Padding(2);
             this.translationBox.Name = "translationBox";
-            this.translationBox.Size = new System.Drawing.Size(300, 40);
+            this.translationBox.Size = new System.Drawing.Size(356, 40);
             this.translationBox.TabIndex = 9;
             // 
             // MenuWindow
