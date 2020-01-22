@@ -14,6 +14,7 @@ namespace ZTP
         private int mode; //0-default, 1-tryb nauki, 2-tryb testu
         private int questionNumber; //przy ktorym pytaniu aktualnie jestesmy
         private int goodAnswerIndex; //indeks prawidlowej odpowiedzi: 1-A, 2-B itd.
+ 
 
         public Game(int level, int mode)
         {
@@ -113,5 +114,6 @@ namespace ZTP
             numbersToNotGenerate.Add(rnd);
             return rnd;
         }
+        
     }
 }

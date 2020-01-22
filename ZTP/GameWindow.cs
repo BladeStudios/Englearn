@@ -13,6 +13,7 @@ namespace ZTP
         public Game game;
         public ArrayList polishWords; //przechowuje liste polskich slow wczytanych z pliku
         public ArrayList englishWords; //przechowuje liste angielskich slow wczytanych z pliku
+        private int Licz = 3; 
 
         public GameWindow(int selectedLevel, int selectedMode, int selectedTranslation)
         {
@@ -118,9 +119,37 @@ namespace ZTP
         {
             switch (mode)
             {
-                case 1: return "TRYB NAUKI";
-                case 2: return "TRYB TESTU";
+                case 1:
+                    licznikLabel.Visible = false;
+                    return "TRYB NAUKI";
+                case 2:
+                    licznikLabel.Visible = true;
+                    StartTimer();
+                    return "TRYB TESTU";
                 default: return "Tryb nieznany!";
+            }
+        }
+
+        public void StartTimer()
+        {
+            Timer MyTimer = new Timer();
+            MyTimer.Interval = 1000;
+           // licznikLabel.Text = "Czas: " + Licz;
+            MyTimer.Tick += new EventHandler(nextQuestion);
+            MyTimer.Start();
+        }
+
+        private void nextQuestion(object sender, EventArgs e)
+        {
+            GameTest gameT = new GameTest(getSelectedLevel(), getSelectedMode());
+            gameT.setLicznik(Licz);
+            licznikLabel.Text = "Czas:" + gameT.getLicznik();
+            gameT.setLicznik(--Licz);
+            if (Licz == -1)
+            {
+                
+                game.setQuestionNumber(game.getQuestionNumber()+1);
+                onChangeState(game.getQuestionNumber(), polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
             }
         }
 
@@ -158,6 +187,7 @@ namespace ZTP
 
         public void onChangeState(ArrayList polishWords, ArrayList englishWords, int selectedTranslation, int selectedLevel, int selectedMode, Game g)
         {
+            Licz = 3;
             if(g.getQuestionNumber()==20 && selectedMode==2)
             {
                 wordLabel.Visible = false;
@@ -251,27 +281,27 @@ namespace ZTP
 
         private void answerAButton_Click(object sender, EventArgs e)
         {
-            checkAnswer(1,answerAButton);
+            checkAnswer(1, answerAButton);
         }
 
         private void answerBButton_Click(object sender, EventArgs e)
         {
-            checkAnswer(2,answerBButton);
+            checkAnswer(2, answerBButton);
         }
 
         private void answerCButton_Click(object sender, EventArgs e)
         {
-            checkAnswer(3,answerCButton);
+            checkAnswer(3, answerCButton);
         }
 
         private void answerDButton_Click(object sender, EventArgs e)
         {
-            checkAnswer(4,answerDButton);
+           checkAnswer(4, answerDButton);
         }
 
         private void answerEButton_Click(object sender, EventArgs e)
         {
-            checkAnswer(5,answerEButton);
+           checkAnswer(5, answerEButton);
         }
 
         private void backButton_Click(object sender, EventArgs e)

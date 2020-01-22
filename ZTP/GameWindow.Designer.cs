@@ -40,6 +40,7 @@
             this.backButton = new System.Windows.Forms.Button();
             this.answerBox = new System.Windows.Forms.RichTextBox();
             this.enterButton = new System.Windows.Forms.Button();
+            this.licznikLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // answerAButton
@@ -175,6 +176,19 @@
             this.enterButton.Text = "DALEJ";
             this.enterButton.UseVisualStyleBackColor = true;
             // 
+            // licznikLabel
+            // 
+            this.licznikLabel.AutoSize = true;
+            this.licznikLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
+            this.licznikLabel.ForeColor = System.Drawing.Color.Black;
+            this.licznikLabel.Location = new System.Drawing.Point(695, 18);
+            this.licznikLabel.Name = "licznikLabel";
+            this.licznikLabel.Size = new System.Drawing.Size(61, 18);
+            this.licznikLabel.TabIndex = 15;
+            this.licznikLabel.Text = "Czas: ";
+            this.licznikLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.licznikLabel.Click += new System.EventHandler(this.licznikLabel_Click);
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +197,7 @@
             this.ClientSize = new System.Drawing.Size(1005, 576);
             this.Controls.Add(this.enterButton);
             this.Controls.Add(this.answerBox);
+            this.Controls.Add(this.licznikLabel);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.answerEButton);
             this.Controls.Add(this.answerDButton);
@@ -194,7 +209,7 @@
             this.Controls.Add(this.modeLabel);
             this.Controls.Add(this.answerAButton);
             this.Name = "GameWindow";
-            this.Text = "GameWindow";
+            this.Text = "v";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,5 +229,6 @@
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.RichTextBox answerBox;
         private System.Windows.Forms.Button enterButton;
+        private System.Windows.Forms.Label licznikLabel;
     }
 }

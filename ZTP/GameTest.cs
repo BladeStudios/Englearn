@@ -9,6 +9,7 @@ namespace ZTP
     class GameTest : Game
     {
         private int points;
+        private int licznik;
 
        public GameTest(int level, int mode) : base(level, mode)
         {
@@ -23,6 +24,15 @@ namespace ZTP
         public void setPoints(int points)
         {
             this.points = points;
+        }
+        public int getLicznik()
+        {
+            return this.licznik;
+        }
+
+        public void setLicznik(int licznik)
+        {
+            this.licznik = licznik;
         }
     }
 }
