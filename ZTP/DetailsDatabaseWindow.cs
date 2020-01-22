@@ -20,20 +20,25 @@ namespace ZTP
         Database dbEng = new Database();
         DatabaseWindow dbWindow = new DatabaseWindow();
 
-        public DetailsDatabaseWindow(int index, int selectedIndexWord ) // index jeżeli 1 to dodanie słówka jeżeli 2 edycja
+        public DetailsDatabaseWindow(int windowMode, int selectedWordIndex ) // windowMode: 1-dodanie słówka, 2-edycja
         {
             InitializeComponent();
-            choise = index;
+            choise = windowMode;
             dbPol.loadData("PolishDictionary.txt");
             dbEng.loadData("EnglishDictionary.txt");
             if(choise == 2 )
             {
-                indexEdit = selectedIndexWord;
-                Pol = dbPol.getWord(selectedIndexWord);
-                Eng = dbEng.getWord(selectedIndexWord);
+                indexEdit = selectedWordIndex;
+                Pol = dbPol.getWord(selectedWordIndex);
+                Eng = dbEng.getWord(selectedWordIndex);
                 richTextBox1.Text = Pol;
                 richTextBox2.Text = Eng;
             }
+        }
+
+        public void setIndexEdit(int indexEdit)
+        {
+            this.indexEdit = indexEdit;
         }
 
         private void save_Click(object sender, EventArgs e)

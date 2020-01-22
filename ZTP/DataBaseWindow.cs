@@ -15,7 +15,7 @@ namespace ZTP
         //0-default, 1-polski-angielski, 2-angielski-polski
         Database dbPol = new Database();
         Database dbEng = new Database();
-        private int Choise;
+        private int selectedWordIndex;
         public DatabaseWindow()
         {
             InitializeComponent();
@@ -95,16 +95,19 @@ namespace ZTP
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            DetailsDatabaseWindow detailsdata = new DetailsDatabaseWindow(2, Choise);
             if (listBoxPol.SelectedIndex != -1)
             {
-                Choise = listBoxPol.SelectedIndex;
+                DetailsDatabaseWindow detailsdata = new DetailsDatabaseWindow(2, listBoxPol.SelectedIndex);
+                selectedWordIndex = listBoxPol.SelectedIndex;
+                detailsdata.setIndexEdit(listBoxPol.SelectedIndex);
                 detailsdata.ShowDialog();
                 loadData();
             }
             else if (listBoxEng.SelectedIndex != -1)
             {
-                Choise = listBoxEng.SelectedIndex;
+                DetailsDatabaseWindow detailsdata = new DetailsDatabaseWindow(2, listBoxEng.SelectedIndex);
+                selectedWordIndex = listBoxEng.SelectedIndex;
+                detailsdata.setIndexEdit(listBoxEng.SelectedIndex);
                 detailsdata.ShowDialog();
                 loadData();
             }
