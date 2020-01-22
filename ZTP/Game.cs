@@ -4,29 +4,43 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Windows.Forms;
 
 namespace ZTP
 {
     public class Game
     {
-        private int level; //0-default, 1-łatwy, 2-sredni, 3-trudny, 4-bardzo trudny, 5-ekspert
+        private GameLevel level; //0-default, 1-łatwy, 2-sredni, 3-trudny, 4-bardzo trudny, 5-ekspert
         private int mode; //0-default, 1-tryb nauki, 2-tryb testu
-        private int state; //przy ktorym pytaniu aktualnie jestesmy
+        private int questionNumber; //przy ktorym pytaniu aktualnie jestesmy
         private int goodAnswerIndex; //indeks prawidlowej odpowiedzi: 1-A, 2-B itd.
 
         public Game(int level, int mode)
         {
-            setLevel(level);
             setMode(mode);
+            switch(level)
+            {
+                case 1: this.level = new EasyLevel(); break;
+                case 2: this.level = new MediumLevel(); break;
+                case 3: this.level = new HardLevel(); break;
+                case 4: this.level = new VeryHardLevel(); break;
+                case 5: this.level = new ExpertLevel(); break;
+                default: this.level = new EasyLevel(); break;
+            }
+        }
+
+        public void setButtonsVisibility(Button answerA, Button answerB, Button answerC, Button answerD, Button answerE, RichTextBox answerBox, Button enterButton)
+        {
+            this.level.setButtonsVisibility(answerA, answerB, answerC, answerD, answerE, answerBox, enterButton);
         }
 
         //GETTERY I SETTERY
-        public int getLevel()
+        public GameLevel getLevel()
         {
             return this.level;
         }
 
-        public void setLevel(int level)
+        public void setLevel(GameLevel level)
         {
             this.level = level;
         }
@@ -41,14 +55,14 @@ namespace ZTP
             this.mode = mode;
         }
 
-        public int getState()
+        public int getQuestionNumber()
         {
-            return this.state;
+            return this.questionNumber;
         }
 
-        public void setState(int state)
+        public void setQuestionNumber(int number)
         {
-            this.state = state;
+            this.questionNumber = number;
         }
 
         public int getGoodAnswerIndex()

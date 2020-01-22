@@ -38,12 +38,14 @@
             this.answerDButton = new System.Windows.Forms.Button();
             this.answerEButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
+            this.answerBox = new System.Windows.Forms.RichTextBox();
+            this.enterButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // answerAButton
             // 
             this.answerAButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.answerAButton.Location = new System.Drawing.Point(260, 162);
+            this.answerAButton.Location = new System.Drawing.Point(260, 206);
             this.answerAButton.Name = "answerAButton";
             this.answerAButton.Size = new System.Drawing.Size(473, 41);
             this.answerAButton.TabIndex = 3;
@@ -102,7 +104,7 @@
             // answerBButton
             // 
             this.answerBButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.answerBButton.Location = new System.Drawing.Point(260, 209);
+            this.answerBButton.Location = new System.Drawing.Point(260, 253);
             this.answerBButton.Name = "answerBButton";
             this.answerBButton.Size = new System.Drawing.Size(473, 41);
             this.answerBButton.TabIndex = 10;
@@ -113,7 +115,7 @@
             // answerCButton
             // 
             this.answerCButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.answerCButton.Location = new System.Drawing.Point(260, 256);
+            this.answerCButton.Location = new System.Drawing.Point(260, 300);
             this.answerCButton.Name = "answerCButton";
             this.answerCButton.Size = new System.Drawing.Size(473, 41);
             this.answerCButton.TabIndex = 11;
@@ -124,7 +126,7 @@
             // answerDButton
             // 
             this.answerDButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.answerDButton.Location = new System.Drawing.Point(260, 303);
+            this.answerDButton.Location = new System.Drawing.Point(260, 347);
             this.answerDButton.Name = "answerDButton";
             this.answerDButton.Size = new System.Drawing.Size(473, 41);
             this.answerDButton.TabIndex = 12;
@@ -135,7 +137,7 @@
             // answerEButton
             // 
             this.answerEButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
-            this.answerEButton.Location = new System.Drawing.Point(260, 350);
+            this.answerEButton.Location = new System.Drawing.Point(260, 394);
             this.answerEButton.Name = "answerEButton";
             this.answerEButton.Size = new System.Drawing.Size(473, 41);
             this.answerEButton.TabIndex = 13;
@@ -154,12 +156,33 @@
             this.backButton.UseVisualStyleBackColor = true;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // answerBox
+            // 
+            this.answerBox.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.answerBox.Location = new System.Drawing.Point(260, 206);
+            this.answerBox.Name = "answerBox";
+            this.answerBox.Size = new System.Drawing.Size(473, 41);
+            this.answerBox.TabIndex = 15;
+            this.answerBox.Text = "";
+            // 
+            // enterButton
+            // 
+            this.enterButton.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
+            this.enterButton.Location = new System.Drawing.Point(380, 262);
+            this.enterButton.Name = "enterButton";
+            this.enterButton.Size = new System.Drawing.Size(244, 52);
+            this.enterButton.TabIndex = 16;
+            this.enterButton.Text = "DALEJ";
+            this.enterButton.UseVisualStyleBackColor = true;
+            // 
             // GameWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1005, 576);
+            this.Controls.Add(this.enterButton);
+            this.Controls.Add(this.answerBox);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.answerEButton);
             this.Controls.Add(this.answerDButton);
@@ -189,5 +212,7 @@
         private System.Windows.Forms.Button answerDButton;
         private System.Windows.Forms.Button answerEButton;
         private System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.RichTextBox answerBox;
+        private System.Windows.Forms.Button enterButton;
     }
 }

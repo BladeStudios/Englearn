@@ -12,7 +12,6 @@ namespace ZTP
 
        public GameTest(int level, int mode) : base(level, mode)
         {
-            setLevel(level);
             setMode(mode);
         }
 

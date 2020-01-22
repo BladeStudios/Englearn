@@ -21,7 +21,7 @@ namespace ZTP
             setSelectedMode(selectedMode);
             setSelectedTranslation(selectedTranslation);
             game = new Game(selectedLevel, selectedMode);
-            game.setState(1); //ustawienie przy ktorym pytaniu jestesmy
+            game.setQuestionNumber(1); //ustawienie przy ktorym pytaniu jestesmy
             if(answerEButton.Visible==false)
             {
                 answerAButton.Visible = true;
@@ -30,7 +30,8 @@ namespace ZTP
                 answerDButton.Visible = true;
                 answerEButton.Visible = true;
             }
-            createButtons(selectedLevel);
+            //createButtons(selectedLevel);
+            game.setButtonsVisibility(answerAButton, answerBButton, answerCButton, answerDButton, answerEButton, answerBox, enterButton);
 
             Database polishDictionary = new Database();
             polishDictionary.loadData("PolishDictionary.txt");
@@ -40,7 +41,7 @@ namespace ZTP
             englishDictionary.loadData("EnglishDictionary.txt");
             englishWords = englishDictionary.getData();
 
-            onChangeState(game.getState(), polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
+            onChangeState(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
         }
 
         //GETTERY I SETTERY
@@ -78,6 +79,7 @@ namespace ZTP
             this.selectedTranslation = selectedTranslation;
         }
 
+        /*
         public void createButtons(int selectedLevel) // tworzy odpowiednia ilosc i ulozenie buttonow zaleznie od wybranego poziomu
         {
             if(selectedLevel==0) //tryb nieznany
@@ -97,7 +99,7 @@ namespace ZTP
                 if (selectedLevel == 1) //latwy
                     answerCButton.Visible = false;
             }
-        }
+        }*/
 
         public string getLevelName(int level) //zwraca nazwe poziomu
         {
@@ -154,9 +156,9 @@ namespace ZTP
 
         }
 
-        public void onChangeState(int currentState, ArrayList polishWords, ArrayList englishWords, int selectedTranslation, int selectedLevel, int selectedMode, Game g)
+        public void onChangeState(ArrayList polishWords, ArrayList englishWords, int selectedTranslation, int selectedLevel, int selectedMode, Game g)
         {
-            if(g.getState()==20 && selectedMode==2)
+            if(g.getQuestionNumber()==20 && selectedMode==2)
             {
                 wordLabel.Visible = false;
                 answerAButton.Visible = false;
@@ -232,14 +234,14 @@ namespace ZTP
                 default: MessageBox.Show("Error: GameWindow.cs:onChangeState"); break;
             }
 
-            g.setState(g.getState() + 1);
+            g.setQuestionNumber(g.getQuestionNumber() + 1);
         }
 
         public void checkAnswer(int index, Button button)
         {
             if (game.getGoodAnswerIndex() == index)
             {
-                onChangeState(game.getState(), polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
+                onChangeState(polishWords, englishWords, selectedTranslation, selectedLevel, selectedMode, game);
             }
             else
             {
