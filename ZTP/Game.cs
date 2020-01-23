@@ -35,7 +35,7 @@ namespace ZTP
             }
         }
 
-        public void setButtonsVisibility(Button answerA, Button answerB, Button answerC, Button answerD, Button answerE, RichTextBox answerBox, Button enterButton)
+        public void setButtonsVisibility(Button answerA, Button answerB, Button answerC, Button answerD, Button answerE, TextBox answerBox, Button enterButton)
         {
             this.level.setButtonsVisibility(answerA, answerB, answerC, answerD, answerE, answerBox, enterButton);
         }

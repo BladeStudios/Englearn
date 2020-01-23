@@ -30,8 +30,8 @@ namespace ZTP
                 indexEdit = selectedWordIndex;
                 Pol = dbPol.getWord(selectedWordIndex);
                 Eng = dbEng.getWord(selectedWordIndex);
-                richTextBox1.Text = Pol;
-                richTextBox2.Text = Eng;
+                textBoxPol.Text = Pol;
+                textBoxEng.Text = Eng;
             }
         }
 
@@ -42,13 +42,13 @@ namespace ZTP
 
         private void save_Click(object sender, EventArgs e)
         {
-            Pol = richTextBox1.Text;
-            Eng = richTextBox2.Text;
+            Pol = textBoxPol.Text;
+            Eng = textBoxEng.Text;
             if (choise == 1)
             {
-                if ( richTextBox1.Text != "" && richTextBox2.Text != ""  )
+                if (textBoxPol.Text != "" && textBoxEng.Text != ""  )
                 {
-                    if (sprawdz_wyraz(richTextBox1.Text) && sprawdz_wyraz(richTextBox2.Text))
+                    if (sprawdz_wyraz(textBoxPol.Text) && sprawdz_wyraz(textBoxEng.Text))
                     {
                         dbPol.addWord(Pol);
                         dbEng.addWord(Eng);
@@ -65,9 +65,9 @@ namespace ZTP
             }
             else if(choise == 2)
             {
-                if (richTextBox1.Text != "" && richTextBox2.Text != "")
+                if (textBoxPol.Text != "" && textBoxEng.Text != "")
                 {
-                    if (sprawdz_wyraz(richTextBox1.Text) && sprawdz_wyraz(richTextBox2.Text))
+                    if (sprawdz_wyraz(textBoxPol.Text) && sprawdz_wyraz(textBoxEng.Text))
                     {
                         dbPol.editWord(indexEdit, Pol);
                         dbEng.editWord(indexEdit, Eng);
@@ -104,6 +104,13 @@ namespace ZTP
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
-
+        private void seve_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode.Equals(Keys.Enter))
+            {
+                
+                e.SuppressKeyPress = true;
+            }
+        }
     }
 }

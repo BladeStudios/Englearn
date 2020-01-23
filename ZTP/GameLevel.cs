@@ -9,6 +9,6 @@ namespace ZTP
 {
     public abstract class GameLevel
     {
-       public abstract void setButtonsVisibility(Button answerA, Button answerB, Button answerC, Button answerD, Button answerE, RichTextBox answerBox, Button enterButton);
+       public abstract void setButtonsVisibility(Button answerA, Button answerB, Button answerC, Button answerD, Button answerE, TextBox answerBox, Button enterButton);
     }
 }
