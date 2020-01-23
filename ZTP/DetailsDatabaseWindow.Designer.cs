@@ -48,6 +48,7 @@
             this.save.Text = "ZAPISZ";
             this.save.UseVisualStyleBackColor = true;
             this.save.Click += new System.EventHandler(this.save_Click);
+            this.save.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seve_KeyDown);
             // 
             // end
             // 
@@ -95,6 +96,7 @@
             this.textBoxPol.Name = "textBoxPol";
             this.textBoxPol.Size = new System.Drawing.Size(226, 30);
             this.textBoxPol.TabIndex = 7;
+            this.textBoxPol.KeyDown += new System.Windows.Forms.KeyEventHandler(this.seve_KeyDown);
             // 
             // textBoxEng
             // 

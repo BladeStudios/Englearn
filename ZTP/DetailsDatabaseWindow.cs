@@ -108,7 +108,6 @@ namespace ZTP
         {
             if (e.KeyCode.Equals(Keys.Enter))
             {
-                
                 e.SuppressKeyPress = true;
             }
         }
