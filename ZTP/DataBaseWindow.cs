@@ -16,10 +16,20 @@ namespace ZTP
         Database dbPol = new Database();
         Database dbEng = new Database();
         private int selectedWordIndex;
-        public DatabaseWindow()
+                  
+        private static DatabaseWindow instance;
+
+        private DatabaseWindow()
         {
             InitializeComponent();
             loadData();
+        }
+
+        public static DatabaseWindow getInstance()
+        {
+            if (instance == null || instance.IsDisposed)
+                instance = new DatabaseWindow();
+            return instance;
         }
 
         private void loadData()
@@ -75,8 +85,8 @@ namespace ZTP
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MenuWindow menu = new MenuWindow();
+            this.Close();
+            MenuWindow menu = MenuWindow.getInstance();
             menu.Closed += (s, args) => this.Close();
             menu.Show();
         }

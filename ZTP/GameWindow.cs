@@ -337,8 +337,10 @@ namespace ZTP
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            MenuWindow menu = new MenuWindow();
+            //this.Hide();
+            this.Close();
+            //MenuWindow menu = new MenuWindow();
+            MenuWindow menu = MenuWindow.getInstance();
             menu.Closed += (s, args) => this.Close();
             menu.Show();
         }

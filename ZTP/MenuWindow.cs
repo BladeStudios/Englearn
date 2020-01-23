@@ -16,6 +16,28 @@ namespace ZTP
         private int mode; //0-default, 1-tryb nauki, 2-tryb testu
         private int translation; //0-nie wybrane, 1-polski-angielski, 2-angielski-polski
 
+        private static MenuWindow instance;
+
+        private MenuWindow()
+        {
+            InitializeComponent();
+            Database database = new Database();
+            database.loadData("PolishDictionary.txt");
+            modeBox.Text = "TRYB NAUKI";
+            setMode(modeBox.Text);
+            levelBox.Text = "ŁATWY";
+            setLevel(levelBox.Text);
+            translationBox.Text = "POLSKI-ANGIELSKI";
+            setTranslation(translationBox.Text);
+        }
+
+        public static MenuWindow getInstance()
+        {
+            if (instance == null || instance.IsDisposed)
+                instance = new MenuWindow();
+            return instance;
+        }
+
         void setMode(string mode)
         {
             if (String.Compare(mode, "TRYB NAUKI") == 0)
@@ -67,19 +89,6 @@ namespace ZTP
             return this.translation;
         }
 
-        public MenuWindow()
-        {
-            InitializeComponent();
-            Database database = new Database();
-            database.loadData("PolishDictionary.txt");
-            modeBox.Text = "TRYB NAUKI";
-            setMode(modeBox.Text);
-            levelBox.Text = "ŁATWY";
-            setLevel(levelBox.Text);
-            translationBox.Text = "POLSKI-ANGIELSKI";
-            setTranslation(translationBox.Text);
-        }
-
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -98,7 +107,7 @@ namespace ZTP
             setTranslation(translationBox.Text);
             GameWindow game = new GameWindow(getLevel(),getMode(),getTranslation());
             game.Show();
-            game.Closed += (s, args) => this.Close();
+            game.Closed += (s, args) => this.Show();
             
         }
 
@@ -120,9 +129,9 @@ namespace ZTP
         private void BazaButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            DatabaseWindow db = new DatabaseWindow();
-            db.Closed += (s, args) => this.Close();
+            DatabaseWindow db = DatabaseWindow.getInstance();
             db.Show();
+            db.Closed += (s, args) => this.Show();
         }
     }
 }
