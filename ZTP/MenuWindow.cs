@@ -89,15 +89,7 @@ namespace ZTP
             return this.translation;
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void startButton_Click(object sender, EventArgs e)
         {
@@ -111,19 +103,10 @@ namespace ZTP
             
         }
 
-        private void learningModelLabel_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void endButton_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void BazaButton_Click(object sender, EventArgs e)

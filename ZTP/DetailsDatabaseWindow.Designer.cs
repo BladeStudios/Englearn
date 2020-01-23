@@ -67,7 +67,6 @@
             this.richTextBox1.Size = new System.Drawing.Size(162, 25);
             this.richTextBox1.TabIndex = 4;
             this.richTextBox1.Text = "";
-            this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
             // label4
             // 
@@ -102,7 +101,6 @@
             this.richTextBox2.Size = new System.Drawing.Size(162, 25);
             this.richTextBox2.TabIndex = 6;
             this.richTextBox2.Text = "";
-            this.richTextBox2.TextChanged += new System.EventHandler(this.richTextBox2_TextChanged);
             // 
             // DetailsDatabaseWindow
             // 

@@ -90,7 +90,6 @@
             this.listBoxPol.Name = "listBoxPol";
             this.listBoxPol.Size = new System.Drawing.Size(256, 277);
             this.listBoxPol.TabIndex = 7;
-            this.listBoxPol.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
             // listBoxEng
             // 
@@ -142,7 +141,6 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DatabaseWindow";
             this.Text = "DataBaseWindow";
-            this.Load += new System.EventHandler(this.DatabaseWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

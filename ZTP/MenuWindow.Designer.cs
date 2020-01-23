@@ -59,7 +59,6 @@
             this.learningModelLabel.Size = new System.Drawing.Size(291, 32);
             this.learningModelLabel.TabIndex = 1;
             this.learningModelLabel.Text = "TRYB PROGRAMU:";
-            this.learningModelLabel.Click += new System.EventHandler(this.learningModelLabel_Click);
             // 
             // startButton
             // 
@@ -85,7 +84,6 @@
             this.modeBox.Name = "modeBox";
             this.modeBox.Size = new System.Drawing.Size(356, 40);
             this.modeBox.TabIndex = 3;
-            this.modeBox.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // levelBox
             // 
@@ -103,7 +101,6 @@
             this.levelBox.Name = "levelBox";
             this.levelBox.Size = new System.Drawing.Size(356, 40);
             this.levelBox.TabIndex = 4;
-            this.levelBox.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -116,7 +113,6 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Englearn ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // endButton
             // 
