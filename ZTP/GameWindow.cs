@@ -350,6 +350,13 @@ namespace ZTP
             checkAnswerText();
         }
 
-       
+        private void answerBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode.Equals(Keys.Enter))
+            {
+                e.SuppressKeyPress = true;
+                checkAnswerText();
+            }
+        }
     }
 }

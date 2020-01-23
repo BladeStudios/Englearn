@@ -9,7 +9,7 @@ namespace ZTP
 {
     class ExpertLevel : GameLevel
     {
-        public override void setButtonsVisibility(Button answerA, Button answerB, Button answerC, Button answerD, Button answerE, RichTextBox answerBox, Button enterButton)
+        public override void setButtonsVisibility(Button answerA, Button answerB, Button answerC, Button answerD, Button answerE, TextBox answerBox, Button enterButton)
         {
             answerA.Visible = false;
             answerB.Visible = false;
