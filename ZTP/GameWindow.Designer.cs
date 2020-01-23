@@ -237,6 +237,7 @@
             this.Controls.Add(this.modeLabel);
             this.Controls.Add(this.answerAButton);
             this.Name = "GameWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Englearn";
             this.ResumeLayout(false);
             this.PerformLayout();

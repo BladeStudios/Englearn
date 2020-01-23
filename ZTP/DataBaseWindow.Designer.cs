@@ -140,6 +140,7 @@
             this.Controls.Add(this.startButton);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "DatabaseWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DataBaseWindow";
             this.ResumeLayout(false);
             this.PerformLayout();

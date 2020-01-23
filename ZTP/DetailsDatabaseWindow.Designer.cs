@@ -115,6 +115,7 @@
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.save);
             this.Name = "DetailsDatabaseWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DetailsDatabaseWindow";
             this.ResumeLayout(false);
             this.PerformLayout();
