@@ -10,7 +10,6 @@ namespace ZTP
     {
         private int points;
         private int licznik;
-        private int questionNumber; //przy ktorym pytaniu aktualnie jestesmy
 
         public GameTest(int level) : base(level)
         {

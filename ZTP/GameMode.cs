@@ -8,6 +8,8 @@ namespace ZTP
 {
     public abstract class GameMode : Game
     {
+        protected int questionNumber; //przy ktorym pytaniu aktualnie jestesmy
+
         public GameMode(int level) : base(level)
         {
             switch (level)
