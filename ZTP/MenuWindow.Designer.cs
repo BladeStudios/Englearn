@@ -80,7 +80,7 @@
             "TRYB NAUKI",
             "TRYB TESTU"});
             this.modeBox.Location = new System.Drawing.Point(305, 162);
-            this.modeBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.modeBox.Margin = new System.Windows.Forms.Padding(2);
             this.modeBox.Name = "modeBox";
             this.modeBox.Size = new System.Drawing.Size(356, 40);
             this.modeBox.TabIndex = 3;
@@ -97,7 +97,7 @@
             "BARDZO TRUDNY",
             "EKSPERT"});
             this.levelBox.Location = new System.Drawing.Point(305, 246);
-            this.levelBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.levelBox.Margin = new System.Windows.Forms.Padding(2);
             this.levelBox.Name = "levelBox";
             this.levelBox.Size = new System.Drawing.Size(356, 40);
             this.levelBox.TabIndex = 4;
@@ -156,7 +156,7 @@
             "POLSKI-ANGIELSKI",
             "ANGIELSKI-POLSKI"});
             this.translationBox.Location = new System.Drawing.Point(305, 343);
-            this.translationBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.translationBox.Margin = new System.Windows.Forms.Padding(2);
             this.translationBox.Name = "translationBox";
             this.translationBox.Size = new System.Drawing.Size(356, 40);
             this.translationBox.TabIndex = 9;
@@ -178,6 +178,7 @@
             this.Controls.Add(this.learningModelLabel);
             this.Controls.Add(this.difficultyLabel);
             this.Name = "MenuWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Englearn";
             this.ResumeLayout(false);
             this.PerformLayout();

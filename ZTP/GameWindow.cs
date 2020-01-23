@@ -10,11 +10,11 @@ namespace ZTP
         private int selectedLevel; //0-default, 1-łatwy, 2-sredni, 3-trudny, 4-bardzo trudny, 5-ekspert
         private int selectedMode; //0-default, 1-tryb nauki, 2-tryb testu
         private int selectedTranslation; //0-default, 1-polski-angielski, 2-angielski-polski
-        public Game game;
+        public Game game; //przechowuje obiekt gry
         public ArrayList polishWords; //przechowuje liste polskich slow wczytanych z pliku
         public ArrayList englishWords; //przechowuje liste angielskich slow wczytanych z pliku
-        private int Licz = 3;
-        private int wordIndex;
+        private int Licz = 3; //zmienna do timera w trybie testu, przechowuje ilość sekund na odpowiedź
+        private int wordIndex; //indeks słowa (w pliku bazy słów) do odgadnięcia
 
         public GameWindow(int selectedLevel, int selectedMode, int selectedTranslation)
         {
@@ -132,10 +132,6 @@ namespace ZTP
                 else if(selectedTranslation==2)
                     onChangeQuestion(englishWords, polishWords, selectedLevel, selectedMode, game);
             }
-            else 
-            {
-                
-            }
             
         }
 
@@ -149,35 +145,13 @@ namespace ZTP
             }
         }
 
-        public void setButtons(int selectedLevel) //ustawia odpowiednie wartosci buttonów
-        {
-            if (selectedLevel == 0) //tryb nieznany
-            {
-
-            }
-            else if (selectedLevel == 5)//ekspert
-            {
-                
-            }
-            else
-            {
-                if (selectedLevel <= 3) //latwy,sredni,trudny
-                    answerEButton.Visible = false;
-                if (selectedLevel <= 2) //latwy, sredni
-                    answerDButton.Visible = false;
-                if (selectedLevel == 1) //latwy
-                    answerCButton.Visible = false;
-            }
-
-        }
-
         public void onChangeQuestion(ArrayList firstDictionary, ArrayList secondDictionary, int selectedLevel, int selectedMode, Game g)
         {
             Licz = 3;
             if (selectedMode == 1) //tryb nauki
-                questionLabel.Text = "PYTANIE NUMER: " + g.getQuestionNumber();
+                questionLabel.Text = "SŁÓWKO NUMER: " + g.getQuestionNumber();
             else if (selectedMode == 2) //tryb testu
-                questionLabel.Text = "PYTANIE NUMER: " + g.getQuestionNumber() + "/20";
+                questionLabel.Text = "SŁÓWKO NUMER: " + g.getQuestionNumber() + "/20";
 
             if (g.getQuestionNumber()==21 && selectedMode==2)
             {
@@ -213,7 +187,7 @@ namespace ZTP
             {
                 //wylosowanie, która odpowiedz bedzie prawdziwa
                 g.setGoodAnswerIndex(g.getRandom(1, selectedLevel + 1)); //1-odpowiedzA, 2-odpowiedzB itd.
-                                                                         //wpisanie poprawnej odpowiedzi pod odpowiedni button
+                //wpisanie poprawnej odpowiedzi pod odpowiedni button
                 switch (g.getGoodAnswerIndex())
                 {
                     case 1:
@@ -337,9 +311,7 @@ namespace ZTP
 
         private void backButton_Click(object sender, EventArgs e)
         {
-            //this.Hide();
             this.Close();
-            //MenuWindow menu = new MenuWindow();
             MenuWindow menu = MenuWindow.getInstance();
             menu.Closed += (s, args) => this.Close();
             menu.Show();
