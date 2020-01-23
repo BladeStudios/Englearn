@@ -197,11 +197,11 @@
             this.pointsLabel.AutoSize = true;
             this.pointsLabel.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
             this.pointsLabel.ForeColor = System.Drawing.Color.Black;
-            this.pointsLabel.Location = new System.Drawing.Point(72, 162);
+            this.pointsLabel.Location = new System.Drawing.Point(394, 215);
             this.pointsLabel.Name = "pointsLabel";
-            this.pointsLabel.Size = new System.Drawing.Size(422, 32);
+            this.pointsLabel.Size = new System.Drawing.Size(144, 32);
             this.pointsLabel.TabIndex = 17;
-            this.pointsLabel.Text = "TWOJE ZDOBYTE PUNKTY: ";
+            this.pointsLabel.Text = "WYNIK: ";
             this.pointsLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // questionLabel

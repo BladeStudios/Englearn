@@ -22,19 +22,16 @@ namespace ZTP
             setSelectedLevel(selectedLevel);
             setSelectedMode(selectedMode);
             setSelectedTranslation(selectedTranslation);
+
             if (selectedMode == 1)
-            {
-                questionLabel.Visible = false;
                 game = new GameLearning(selectedLevel);
-            }
             else
-            {
                 game = new GameTest(selectedLevel);
-                questionLabel.Visible = true;
-            }
+
             game.setQuestionNumber(1); //ustawienie przy ktorym pytaniu jestesmy
             game.setButtonsVisibility(answerAButton, answerBButton, answerCButton, answerDButton, answerEButton, answerBox, enterButton);
             pointsLabel.Visible = false;
+            questionLabel.Visible = true;
 
             Database polishDictionary = new Database();
             polishDictionary.loadData("PolishDictionary.txt");
@@ -85,28 +82,6 @@ namespace ZTP
             this.selectedTranslation = selectedTranslation;
         }
 
-        /*
-        public void createButtons(int selectedLevel) // tworzy odpowiednia ilosc i ulozenie buttonow zaleznie od wybranego poziomu
-        {
-            if(selectedLevel==0) //tryb nieznany
-            {
-
-            }
-            else if(selectedLevel==5)//ekspert
-            {
-
-            }
-            else
-            {
-                if (selectedLevel <= 3) //latwy,sredni,trudny
-                    answerEButton.Visible = false;
-                if (selectedLevel <= 2) //latwy, sredni
-                    answerDButton.Visible = false;
-                if (selectedLevel == 1) //latwy
-                    answerCButton.Visible = false;
-            }
-        }*/
-
         public string getLevelName(int level) //zwraca nazwe poziomu
         {
             switch(level)
@@ -146,7 +121,6 @@ namespace ZTP
 
         private void nextQuestion(object sender, EventArgs e)
         {
-            //GameTest gameT = new GameTest(getSelectedLevel(), getSelectedMode());
             game.setLicznik(Licz);
             licznikLabel.Text = "Czas:" + game.getLicznik();
             game.setLicznik(--Licz);
@@ -200,8 +174,12 @@ namespace ZTP
         public void onChangeQuestion(ArrayList firstDictionary, ArrayList secondDictionary, int selectedLevel, int selectedMode, Game g)
         {
             Licz = 3;
-            questionLabel.Text = "PYTANIE NUMER: " + g.getQuestionNumber() + "/20"; 
-            if(g.getQuestionNumber()==21 && selectedMode==2)
+            if (selectedMode == 1) //tryb nauki
+                questionLabel.Text = "PYTANIE NUMER: " + g.getQuestionNumber();
+            else if (selectedMode == 2) //tryb testu
+                questionLabel.Text = "PYTANIE NUMER: " + g.getQuestionNumber() + "/20";
+
+            if (g.getQuestionNumber()==21 && selectedMode==2)
             {
                 wordLabel.Visible = false;
                 answerAButton.Visible = false;
@@ -212,7 +190,7 @@ namespace ZTP
                 answerBox.Visible = false;
                 enterButton.Visible = false;
                 pointsLabel.Visible = true;
-                pointsLabel.Text = "TWOJE ZDOBYTE PUNKTY:" + g.getPoints().ToString();
+                pointsLabel.Text = "WYNIK: " + g.getPoints().ToString() + "/20";
                 licznikLabel.Visible = false;
                 questionLabel.Visible = false;
             }
@@ -222,6 +200,7 @@ namespace ZTP
             answerCButton.BackColor = System.Drawing.Color.White;
             answerDButton.BackColor = System.Drawing.Color.White;
             answerEButton.BackColor = System.Drawing.Color.White;
+            answerBox.BackColor = System.Drawing.Color.White;
             //lista przechowujaca indeksy slow ze slownika tak, aby na jej podstawie zapobiec powtarzaniu sie odpowiedzi
             List<int> list = new List<int>();
             //wylosowanie indexu slowa do odgadniecia
@@ -230,56 +209,60 @@ namespace ZTP
             list.Add(wordIndex);
             //wpisanie wartosci spod wylosowanego indeksu jako wordLabel
             wordLabel.Text = firstDictionary[wordIndex].ToString();
-            //wylosowanie, która odpowiedz bedzie prawdziwa
-            g.setGoodAnswerIndex(g.getRandom(1, selectedLevel + 1)); //1-odpowiedzA, 2-odpowiedzB itd.
-            //wpisanie poprawnej odpowiedzi pod odpowiedni button
-            switch(g.getGoodAnswerIndex())
+            if(selectedLevel<5)
             {
-                case 1:
-                    {
-                        answerAButton.Text = secondDictionary[wordIndex].ToString();
-                        answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list,firstDictionary.Count-1)].ToString();
-                        answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                    } break;
-                case 2:
-                    {
-                        answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerBButton.Text = secondDictionary[wordIndex].ToString();
-                        answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                    }
-                    break;
-                case 3:
-                    {
-                        answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerCButton.Text = secondDictionary[wordIndex].ToString();
-                        answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                    }
-                    break;
-                case 4:
-                    {
-                        answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerDButton.Text = secondDictionary[wordIndex].ToString();
-                        answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                    }
-                    break;
-                case 5:
-                    {
-                        answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
-                        answerEButton.Text = secondDictionary[wordIndex].ToString();
-                    }
-                    break;
-                default: MessageBox.Show("Error: GameWindow.cs:onChangeState"); break;
+                //wylosowanie, która odpowiedz bedzie prawdziwa
+                g.setGoodAnswerIndex(g.getRandom(1, selectedLevel + 1)); //1-odpowiedzA, 2-odpowiedzB itd.
+                                                                         //wpisanie poprawnej odpowiedzi pod odpowiedni button
+                switch (g.getGoodAnswerIndex())
+                {
+                    case 1:
+                        {
+                            answerAButton.Text = secondDictionary[wordIndex].ToString();
+                            answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        }
+                        break;
+                    case 2:
+                        {
+                            answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerBButton.Text = secondDictionary[wordIndex].ToString();
+                            answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        }
+                        break;
+                    case 3:
+                        {
+                            answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerCButton.Text = secondDictionary[wordIndex].ToString();
+                            answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        }
+                        break;
+                    case 4:
+                        {
+                            answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerDButton.Text = secondDictionary[wordIndex].ToString();
+                            answerEButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                        }
+                        break;
+                    case 5:
+                        {
+                            answerAButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerBButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerCButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerDButton.Text = secondDictionary[g.getWrongAnswerIndex(list, firstDictionary.Count - 1)].ToString();
+                            answerEButton.Text = secondDictionary[wordIndex].ToString();
+                        }
+                        break;
+                    default: MessageBox.Show("Error: GameWindow.cs:onChangeState"); break;
+                }
             }
 
             g.setQuestionNumber(g.getQuestionNumber() + 1);
@@ -298,19 +281,26 @@ namespace ZTP
             else
             {
                 button.BackColor = System.Drawing.Color.Red;
-                if (selectedTranslation == 1)
-                    onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
-                else if (selectedTranslation == 2)
-                    onChangeQuestion(englishWords, polishWords, selectedLevel, selectedMode, game);
-                game.setPoints(game.getPoints() + 0);
+                if(selectedMode == 2)
+                {
+                    if (selectedTranslation == 1)
+                        onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
+                    else if (selectedTranslation == 2)
+                        onChangeQuestion(englishWords, polishWords, selectedLevel, selectedMode, game);
+                }
             }
         }
         public void checkAnswerText()
         {
             answerBox.BackColor = System.Drawing.Color.White;
-            if (englishWords.IndexOf(answerBox.Text) == wordIndex)
+            if ((englishWords.IndexOf(answerBox.Text) == wordIndex && selectedTranslation==1) || polishWords.IndexOf(answerBox.Text) == wordIndex && selectedTranslation==2)
             {
-                onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
+                if(selectedMode == 2)
+                    game.setPoints(game.getPoints() + 1);
+                if(selectedTranslation==1)
+                    onChangeQuestion(polishWords, englishWords, selectedLevel, selectedMode, game);
+                else if(selectedTranslation==2)
+                    onChangeQuestion(englishWords, polishWords, selectedLevel, selectedMode, game);
             }
             else
             {

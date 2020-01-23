@@ -41,11 +41,12 @@ namespace ZTP
         }
         public override int getQuestionNumber()
         {
-            return 0;
+            return this.questionNumber;
         }
-        public override void setQuestionNumber(int QuestionNumber)
+
+        public override void setQuestionNumber(int number)
         {
-            
+            this.questionNumber = number;
         }
     }
 }
