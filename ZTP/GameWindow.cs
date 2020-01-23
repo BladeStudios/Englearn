@@ -175,9 +175,9 @@ namespace ZTP
         {
             Licz = 3;
             if (selectedMode == 1) //tryb nauki
-                questionLabel.Text = "PYTANIE NUMER: " + g.getQuestionNumber();
+                questionLabel.Text = "SŁÓWKO NUMER: " + g.getQuestionNumber();
             else if (selectedMode == 2) //tryb testu
-                questionLabel.Text = "PYTANIE NUMER: " + g.getQuestionNumber() + "/20";
+                questionLabel.Text = "SŁÓWKO NUMER: " + g.getQuestionNumber() + "/20";
 
             if (g.getQuestionNumber()==21 && selectedMode==2)
             {
