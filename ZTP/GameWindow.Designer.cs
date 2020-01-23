@@ -178,7 +178,6 @@
             this.answerBox.Size = new System.Drawing.Size(629, 50);
             this.answerBox.TabIndex = 15;
             this.answerBox.Text = "";
-            this.answerBox.TextChanged += new System.EventHandler(this.answerBox_TextChanged);
             // 
             // enterButton
             // 

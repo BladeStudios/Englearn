@@ -81,18 +81,6 @@ namespace ZTP
             menu.Show();
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
-
-        }
-
-        private void DatabaseWindow_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void editButton_Click(object sender, EventArgs e)
         {
             if (listBoxPol.SelectedIndex != -1)

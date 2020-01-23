@@ -18,7 +18,6 @@ namespace ZTP
         private int indexEdit; // które słówka do edycjii
         Database dbPol = new Database();
         Database dbEng = new Database();
-        DatabaseWindow dbWindow = new DatabaseWindow();
 
         public DetailsDatabaseWindow(int windowMode, int selectedWordIndex ) // windowMode: 1-dodanie słówka, 2-edycja
         {
@@ -106,14 +105,5 @@ namespace ZTP
             this.Close();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void richTextBox2_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
     }
 }

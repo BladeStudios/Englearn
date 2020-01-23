@@ -353,11 +353,6 @@ namespace ZTP
             menu.Show();
         }
 
-        private void answerBox_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
         private void enterButton_Click(object sender, EventArgs e)
         {
             checkAnswerText();
