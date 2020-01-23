@@ -61,7 +61,7 @@
             this.modeLabel.AutoSize = true;
             this.modeLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.modeLabel.ForeColor = System.Drawing.Color.Black;
-            this.modeLabel.Location = new System.Drawing.Point(12, 18);
+            this.modeLabel.Location = new System.Drawing.Point(12, 480);
             this.modeLabel.Name = "modeLabel";
             this.modeLabel.Size = new System.Drawing.Size(152, 18);
             this.modeLabel.TabIndex = 6;
@@ -73,7 +73,7 @@
             this.levelLabel.AutoSize = true;
             this.levelLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.levelLabel.ForeColor = System.Drawing.Color.Black;
-            this.levelLabel.Location = new System.Drawing.Point(12, 45);
+            this.levelLabel.Location = new System.Drawing.Point(12, 512);
             this.levelLabel.Name = "levelLabel";
             this.levelLabel.Size = new System.Drawing.Size(169, 18);
             this.levelLabel.TabIndex = 7;
@@ -85,7 +85,7 @@
             this.translationLabel.AutoSize = true;
             this.translationLabel.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold);
             this.translationLabel.ForeColor = System.Drawing.Color.Black;
-            this.translationLabel.Location = new System.Drawing.Point(12, 72);
+            this.translationLabel.Location = new System.Drawing.Point(12, 546);
             this.translationLabel.Name = "translationLabel";
             this.translationLabel.Size = new System.Drawing.Size(131, 18);
             this.translationLabel.TabIndex = 8;
@@ -209,7 +209,7 @@
             this.questionLabel.AutoSize = true;
             this.questionLabel.Font = new System.Drawing.Font("Verdana", 20F, System.Drawing.FontStyle.Bold);
             this.questionLabel.ForeColor = System.Drawing.Color.Black;
-            this.questionLabel.Location = new System.Drawing.Point(351, 18);
+            this.questionLabel.Location = new System.Drawing.Point(303, 18);
             this.questionLabel.Name = "questionLabel";
             this.questionLabel.Size = new System.Drawing.Size(289, 32);
             this.questionLabel.TabIndex = 18;
